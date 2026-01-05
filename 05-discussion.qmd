@@ -4,7 +4,9 @@ title: "Discussion"
 
 ## Tracking urban growth using EO. Discussion
 
-Once you have your individual land cover masks, you can count pixels and plot the time series. In @fig-fig-bamako-evolution, I show the evolution of Bamako in Mali. The curve shows a fairly constant growth between 1975 and 2020, growing from around 60 square km to more than 140 square km, but the growth appears to flatten after 2020. Note that this could be an effect of the relatively small area we're investigating (~20 km) becoming saturated and growth taking place elsewhere outside of our study area.
+### The Bamako case
+
+Once you have your individual land cover masks, you can count pixels and plot the time series. In @fig-bamako-evolution, I show the evolution of Bamako in Mali. The curve shows a fairly constant growth between 1975 and 2020, growing from around 60 square km to more than 140 square km, but the growth appears to flatten after 2020. Note that this could be an effect of the relatively small area we're investigating (~20 km) becoming saturated and growth taking place elsewhere outside of our study area.
 
  We can also look at the spatial distribution of the growth (see @fig-bamako-map). Clearly, Bamako has continue growing along the Niger River, but also outside from it, and we can see how the build up area ends up making a continuum between the main Bamako city and the towns that existed around it in 1975. 
 
@@ -18,13 +20,13 @@ If you are interested in the particular case of Bamako, you can read [(Keita et 
 
 ![Built up extent of Bamako in 1975 (red) and 2025 (blue)](bamako_presence_superimposed_1975_2025.png){#fig-bamako-map}
 
-## A typical classification problem
+### A typical classification problem
 
 What you've got through is a typical classification problem. The goal of the classification (e.g.the "labels" you are interested in) and the input data might be different, but generally speaking, this is the blueprint. There are of course degrees o
 f sophistication you could improve on. For example, in some tasks, the *dynamics* of the change are what is important. For example, if you are trying to map different types of trees, it might be useful to consider features in summer and winter, to easily separate evergreen and deciduous. Another refinement (specially if your data has a very fine spatial resolution) is to exploit the spatial context: in this practical, we have just taken pixels on their own, but pixels are often spatially correlated, so taking each pixel considering its neighbouring spatial context is a great idea. This is part of 
 what makes so-called deep learning approaches so effective.
 
-## The most important lesson: Watch out for the EO hubris!!
+### The most important lesson: Watch out for the EO hubris!!
 
 Perhaps the most important lesson when thinking about using EO with your projects is to start thinking: "Surely, someone must have had a go at this before me?". A large number of times, you will find that this is indeed the case, and that there is a large community of researchers that spend years finessing the best way of addressing the problem you're trying to solve by creating "products". 
 

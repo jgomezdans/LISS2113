@@ -7,14 +7,14 @@ website:
   navbar:
     background: primary
     left:
-      - text: "Home"
-        href: 01-intro.qmd
-      - text: "Methods"
-        href: 02-methods.qmd
+       - text: "LISS2113"
+    #     href: 01-intro.qmd
+    #   - text: "Methods"
+    #     href: 02-methods.qmd
     right:
       - icon: file-pdf
         text: "Download Full PDF"
-        href: full-manual.pdf  # Link to the generated file
+        href: EO-Urban-Monitoring-KCL.pdf  # Link to the generated file
 
   sidebar:
     style: "docked"
@@ -28,6 +28,8 @@ website:
         file: 03-code.qmd
       - text: "4. Train, validate and run a classifier"
         file: 04-classifier.qmd
+      - text: "5. Discussion"
+        file: 05-discussion.qmd
 
 format:
   html:

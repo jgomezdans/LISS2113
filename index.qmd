@@ -1,6 +1,6 @@
 ---
 title: "Monitoring African Urban Growth using Earth Observation"
-subtitle: "LTSS"
+subtitle: "LISS2113 EO Practical"
 author:
   - name: José Gómez-Dans
     email: jose.gomez-dans@kcl.ac.uk
@@ -26,14 +26,14 @@ While GEE is now free to use for non commercial applications, the techniques are
 
 
 
-## Learning Objectives
+### Learning Objectives
 By the end of this practical, you will have had experience in
 * Access and filter large-scale satellite image collections (Landsat).
 * Implement urban detection algorithms using JavaScript in GEE.
 * Quantify spatial growth rates for a chosen city.
 * Export publication-quality maps and data.
 
-## Practical Structure
+### Practical Structure
 The workshop is divided into three main stages:
 
 1.  **[Introduction](01-intro.qmd)**: Some background reading and other useful information.
@@ -43,13 +43,15 @@ The workshop is divided into three main stages:
 5.  **[Tracking urban growth. Discussion](05-discussion.qmd)**: Use your work to address a research question!
 
 ::: {.callout-important}
-## Prerequisites
+
+### Prerequisites
+
 This practical assumes you have a Google Earth Engine account approved. If you do not, please notify the instructor immediately as approval can take a few days.
 :::
 
 ---
 
-## Getting Help
+### Getting Help
 If you get stuck during the code blocks:
 
 * Use Search Engines!! 

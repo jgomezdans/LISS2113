@@ -14,3 +14,5 @@ format:
 {{< include 03-code.qmd >}}
 
 {{< include 04-classifier.qmd >}}
+
+{{< include 05-discussion.qmd >}}

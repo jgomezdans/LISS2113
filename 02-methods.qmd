@@ -23,9 +23,9 @@ GEE is a cloud based solution, in which most of the heavy processing is done in 
 ![The GEE code editor (from [here](https://open-mrv.readthedocs.io/))](GEEcodeEditor.png){#fig-gee-code-editor}
 
 
-## Annual composite creation
+### Annual composite creation method
 
-### Satellite data
+#### Satellite data
 We use Landsat surface reflectance data provided through Google Earth Engine. Landsat offers a unique, continuous global record of Earth observations from the 1980s to the present, making it particularly suitable for long-term urban studies.
 To ensure consistency across time, we combine data from multiple Landsat sensors:
 
@@ -37,7 +37,7 @@ To ensure consistency across time, we combine data from multiple Landsat sensors
 
 All datasets are taken from the [Collection 2, Tier 1, Level-2 Surface Reflectance products](https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-reflectance). These data have already been radiometrically calibrated and atmospherically corrected, allowing surface reflectance values to be compared across sensors and years.
 
-### Temporal selection
+#### Temporal selection
 
 The analysis will be performed for the following years:
 2000, 2005, 2010, 2015, 2020, and 2024
@@ -54,7 +54,7 @@ Does that suggest anything useful in terms of creating an annual mosaic? Can yuo
 :::
 
 
-### Cloud masking and quality control
+#### Cloud masking and quality control
 Satellite images are affected by clouds, cloud shadows, and other artefacts that can obscure the surface. To address this, we apply a quality mask based on the Landsat `QA_PIXEL` band.
 Pixels flagged as any of the following are removed:
 
@@ -67,7 +67,7 @@ Pixels flagged as any of the following are removed:
 
 In addition, scenes are filtered using metadata to retain only images with less than 70% reported cloud cover. To keep processing efficient, no more than 25 images per year are used, prioritising the clearest scenes.
 
-### Band harmonisation and scaling
+#### Band harmonisation and scaling
 Different Landsat sensors store spectral bands using different band numbers. To allow images from different missions to be combined:
 
 Spectral bands are renamed to a common set of names (`blue`, `green`, `red`, `nir`, `swir1`, `swir2`). @tbl-bands shows what these bands represent.
@@ -93,7 +93,7 @@ Surface reflectance values are rescaled using the official Landsat Collection 2 
 
 
 
-### Additional spectral *features* ("indices")
+#### Additional spectral *features* ("indices")
 
 ![Sample spectral reflectance of vegetation, crops, built-up, bare soils and water classes (from [DOI:10.1016/j.isprsjprs.2017.11.006](https://doi.org/10.1016/j.isprsjprs.2017.11.006)](The-spectral-reflectance-curves-of-vegetation-cropland-building-soil-water_W640.jpg){#fig-reflectance}
 
@@ -113,7 +113,7 @@ Some simple manipulations of reflectance are useful to differentiate different l
 
 
 
-### Annual image composites
+#### Annual image composites
 For each year, all selected and processed images are combined into a single annual composite using the median value of each pixel.
 Using the median:
 
@@ -125,11 +125,12 @@ Using the median:
 
 Each annual composite is clipped to the AOI and assigned a timestamp corresponding to the study year.
 
-### Visualisation
+#### Visualisation
 For exploratory analysis, annual composites are displayed as true-colour (RGB) images using the red, green, and blue bands. A consistent reflectance stretch is applied across all years to ensure that visual differences primarily reflect real land surface change rather than display settings.
 
-### Summary
+#### Summary
 In this first stage of the practical, we:
+
 1 .Define an urban area of interest
 2. Select multi-decadal Landsat surface reflectance data
 3. Apply cloud masking and quality filtering
@@ -138,7 +139,7 @@ In this first stage of the practical, we:
 
 These annual mosaics form the foundation for later steps in the practical, where we will quantify and interpret urban growth patterns.
 
-## Supervised classification and class definition
+### Supervised classification and class definition
 
 To map urban expansion, we use a *supervised classification* approach. In supervised classification, the algorithm "learns" how different land cover types appear in satellite data based on *training samples* provided by the user. In this practical, you can define three or four land cover classes (e.g., built-up areas, vegetation, bare soil, and water. Although all classes are included to improve discrimination, the primary focus of the analysis is on identifying **built-up (urban) areas** accurately.
 
@@ -153,50 +154,3 @@ We use a **Random Forest (RF)** classifier, which is an ensemble machine-learnin
 Model performance can be roughly *validated* using a confusion matrix and overall accuracy derived from the testing data. Additional qualitative validation is encouraged by visually comparing the classified map with true-colour imagery and checking whether built-up areas correspond to known urban features such as dense neighbourhoods and road networks. This combination of quantitative and visual checks will helpyou assess the suitability of your results and whether they are fit for purpose.
 
 
-## Summary
-```{mermaid}
-%%| fig-cap: "Urban Growth Analysis: Systematic Workflow"
-%%| fig-width: 10
-
-flowchart LR
-    %% Data Phase
-    subgraph Data ["DATA INPUTS"]
-        A1[("Landsat 5-9<br/>L2 SR")] 
-        A2[("Sentinel-2<br/>MSI")]
-    end
-
-    %% Processing Phase
-    subgraph Prep ["PRE-PROCESSING"]
-        B1{Filter} --> B2(Harmonize)
-        B2 --> B3(Median Composite)
-    end
-
-    %% Analysis Phase
-    subgraph ML ["MACHINE LEARNING"]
-        C1[/Training Labels/] --> C2[[Random Forest]]
-        B3 --> C2
-        C2 --> C3{Validation}
-    end
-
-    %% Result Phase
-    subgraph Out ["OUTPUTS"]
-        D1[Built-up Maps]
-        D2[Change Stats]
-    end
-
-    %% Main Flow Connections
-    Data --> Prep
-    Prep --> ML
-    ML --> Out
-
-    %% Styling - This is the "Boring-Prevention" section
-    style Data fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Prep fill:#fffde7,stroke:#fbc02d,stroke-width:2px
-    style ML fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style Out fill:#ffebee,stroke:#c62828,stroke-width:2px
-    
-    %% Specific Highlight for the Classifier
-    style C2 fill:#1976d2,color:#fff,stroke-width:3px
-    style A1 fill:#f5f5f5
-    style A2 fill:#f5f5f5
-```

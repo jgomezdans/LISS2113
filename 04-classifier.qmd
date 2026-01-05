@@ -2,13 +2,16 @@
 Title: "Building the classifier"
 ---
 
+## Building a machine learning (ML) classifier
+
 We now have pre-processed the data. We need to define the classifier, the mathematical function that maps from pixel features (e.g. reflectance, indices, etc) to land cover classes. Since we're using a *supervised* method, we need to provide a set of known pairs of land cover vs "features" that can be used to "learn" how to label each pixel when only the features are available. In a real world scenario, we'd need some high quality "ground truth", either by surveying, or by using e.g,,  very high resolution (VHR) remote sensing, aircraft or UAV data. Since this is not available, we'll simplify things a bit: you'll have to select some training samples from the images you pre-processed. We'll also just collect samples for one year, train the classifier on that single year, and assume that the mapping is adequate for all other years.
 
-## Collecting Training Data in Google Earth Engine
+### Collecting Training Data in Google Earth Engine
+
 
 We'll build a **categorical training dataset** for supervised land cover classification, emphasising manual point collection within the Earth Engine Code Editor. Training data are essential for **supervised classifiers** because they provide labelled examples that the algorithm uses to "learn" how spectral information corresponds to real land cover types. In this context, classes such as *soil*, *water*, *vegetation*, and *built-up* (urban) are represented with integer labels (so water could be assigned label 0, built-up 1 and so on).
 
-### Setting up training layers
+#### Setting up training layers
 First, you need to create **new Feature Collections** in the Earth Engine map interface to hold the labelled points. For each land cover class of interest, you:
 
 1. Click the **drawing tools** button in the upper left of the map window to enable point drawing.  
@@ -26,7 +29,7 @@ You'll notice that the different layers have been added to the top of the code e
 
 Images from your prepared **2020 annual Landsat composite** should be added as basemaps while doing this. You can also load high-resolution reference imagery (e.g., from the high-res GEE mosaic or your own assets) and **toggle** between these basemaps so you choose points where the class is confidently known and visible for that season. Make sure your reference imagery time overlaps with your 2020 composite to avoid labelling changes that occurred at different dates.
 
-### Collecting training points with the mouse
+#### Collecting training points with the mouse
 When you have the proper basemaps visible, you collect the training data by manually clicking on the map:
 
 - Select the **point layer** you have set up for a class in the Geometry Imports panel.  
@@ -39,7 +42,7 @@ When you have the proper basemaps visible, you collect the training data by manu
 
 Once all classes have suitable points collected, visualising them helps check that they are **well distributed** and sufficiently representative. Ideally, you want an even spread so that each class’s points cover the spatial and spectral variability within the AOI. After this, you merge the separate FeatureCollections into one combined collection and **export** it (for example to Google Drive or as an Earth Engine Asset) for use in classification workflows such as Random Forest. 
 
-### Merging the training set and exporting
+#### Merging the training set and exporting
 
 To merge all the classes into a single object, you can write the following code:
 
@@ -66,7 +69,7 @@ Export.table.toDrive({
     // file that you can e.g. open & modify in QGIS etc.
 ```
 
-## Training, validating and applying the classifier
+### Training, validating and applying the classifier
 
 Now, let's use a new script to train, validate and apply the classifier. We'll need to import your training set and the 2018 annual mosaic into your workspace. 
 
@@ -160,7 +163,7 @@ What do you think causes this confusions?
 
 :::
 
-## Interpreting the classifier
+### Interpreting the classifier
 
 ML methods are often defined as "black box" methos, in the sense that decisions they make are not obvious. We can try to shed some light on this by calculating some metrics and plotting scatterplots. For example, @fig-var-importance shows the normlised Feature Importance for all the used Features. While MNDWI (the "water" index) is a bit higher than all the others, it looks as if the RF is using all the available information without being biased by any single features. @fig-ndvi-ndbi shows the scatterplot between the NDVI and NDBI, but it's not very informative: clearly, water is in the bottom right hand side, but we can see that all the other classes appear clustered in the top left, with quite a bit of overlap. 
 
