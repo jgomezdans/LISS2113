@@ -1,30 +1,63 @@
 project:
   type: website
-  output-dir: docs  # This is key for GitHub Pages
+  output-dir: docs
 
 website:
-  title: "Monitoring the growth of African cities using Earth Observation data"
+  title: "EO Urban Monitoring"
+  
+  # The Navbar (Top bar)
+  navbar:
+    background: primary
+    left:
+      - text: "Home"
+        href: 01-intro.qmd
+      - text: "Methods"
+        href: 02-methods.qmd
+
+  # The Sidebar (The clickable menu on the left)
   sidebar:
     style: "docked"
+    search: true
     contents:
-      - 01-intro.qmd
-      - 02-methods.qmd
-      - 03-code.qmd
-      - 04-classifier.qmd
+      - text: "1. Introduction"
+        file: 01-intro.qmd
+      - text: "2. Methodology"
+        file: 02-methods.qmd
+      - text: "3. Create annual Landsat composites"
+        file: 03-code.qmd
+      - text: "4. Train, validate and run a classifier"
+        file: 04-classifier.qmd
 
   page-footer:
-    left: "(c) 2026 J Gómez-Dans"
-    right: "Contact: [jose.gomez-dans@kcl.ac.uk](mailto:jose.gomez-dans@kcl.ac.uk)"
+    left: "(c) 2026 José Gómez-Dans (KCL)"
+    right: "[Contact](mailto:jose.gomez-dans@kcl.ac.uk)"
+
 format:
   html:
-    theme: cosmo
+    theme: [cosmo, custom.scss]
+    title-block-banner: "#e2231a"
+    title-block-banner-color: white
     code-copy: true
-    toc: true        # Adds a table of contents on the right
-    highlight-style: github # Good for clean code reading
+    toc: true
+    highlight-style: github
 
   pdf:
     documentclass: report
     papersize: a4
     geometry:
-      - margin=1in
-
+      - margin=2.5cm
+    number-sections: true
+    toc: true
+    # This section makes it look modern
+    header-includes: |
+      \usepackage[default]{sourcesanspro} % Modern sans-serif font
+      \usepackage{xcolor}
+      \definecolor{kclred}{HTML}{e2231a}
+      \usepackage{sectsty}
+      \sectionfont{\color{kclred}}
+      \chapterfont{\color{kclred}}
+      \usepackage{fancyhdr}
+      \pagestyle{fancy}
+      \fancyhf{}
+      \fancyhead[R]{José Gómez-Dans}
+      \fancyfoot[C]{\thepage}
