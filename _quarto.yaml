@@ -4,8 +4,6 @@ project:
 
 website:
   title: "EO Urban Monitoring"
-  
-  # The Navbar (Top bar)
   navbar:
     background: primary
     left:
@@ -13,8 +11,11 @@ website:
         href: 01-intro.qmd
       - text: "Methods"
         href: 02-methods.qmd
+    right:
+      - icon: file-pdf
+        text: "Download Full PDF"
+        href: full-manual.pdf  # Link to the generated file
 
-  # The Sidebar (The clickable menu on the left)
   sidebar:
     style: "docked"
     search: true
@@ -27,10 +28,6 @@ website:
         file: 03-code.qmd
       - text: "4. Train, validate and run a classifier"
         file: 04-classifier.qmd
-
-  page-footer:
-    left: "(c) 2026 José Gómez-Dans (KCL)"
-    right: "[Contact](mailto:jose.gomez-dans@kcl.ac.uk)"
 
 format:
   html:
@@ -48,9 +45,8 @@ format:
       - margin=2.5cm
     number-sections: true
     toc: true
-    # This section makes it look modern
     header-includes: |
-      \usepackage[default]{sourcesanspro} % Modern sans-serif font
+      \usepackage[default]{sourcesanspro}
       \usepackage{xcolor}
       \definecolor{kclred}{HTML}{e2231a}
       \usepackage{sectsty}

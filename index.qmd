@@ -13,7 +13,9 @@ author:
 date: last-modified
 ---
 
-# Welcome
+# Welcome to the Urban Expansion Monitoring practical 
+
+This practical is part of LISS 2113 (*Introduction to Geographic Information System and Spatial Data Analysis.*)
 
 This practical will show you how to use optical Earth Observation data from the Landsat family of satellites to monitor urban expansion in West African cities. The practical uses Google Earth Engine to access the data and perform most of the tasks. 
 
@@ -36,7 +38,9 @@ The workshop is divided into three main stages:
 
 1.  **[Introduction](01-intro.qmd)**: Some background reading and other useful information.
 2.  **[Data & methods](02-methods.qmd)**: A detailed description of the different tasks that you'll undertake.
-3.  **[The actual code](03-code.qmd)**: The actual GEE code!
+3.  **[Build annual Landsat composite images](03-code.qmd)**: Use GEE to build annual base images that hopefully easily reflect different land cover types.
+4.  **[Train, validate and apply a "Random Forest" classifier](04-classifier.qmd)**: Now, we'll use a machine learning method called "Random Forest" to build a classifier, validate that it works, and apply to our composite images
+5.  **[Tracking urban growth. Discussion](05-discussion.qmd)**: Use your work to address a research question!
 
 ::: {.callout-important}
 ## Prerequisites
@@ -48,7 +52,12 @@ This practical assumes you have a Google Earth Engine account approved. If you d
 ## Getting Help
 If you get stuck during the code blocks:
 
+* Use Search Engines!! 
 * Check the **Console** for specific error messages.
 * Use the `print()` function to inspect variables.
 * Reference the [Official GEE Documentation](https://developers.google.com/earth-engine/guides).
-* Use ChatGPT, Gemini and friends!!! 
+
+**If you are happy using Large Language Models (LLMs)**, you can get a lot of very uesful help from them:
+* You can ask the LLM to "Explain this code to me in really simple terms"
+* Modify the code to e.g. use Python rather than Javascript if you see it fit
+* Explore additional datasets 
