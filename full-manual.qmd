@@ -1,0 +1,16 @@
+---
+title: "Monitoring the growth of African cities using Earth Observation data"
+subtitle: "Complete Course Manual"
+author: "José Gómez-Dans (KCL)"
+format:
+  pdf:
+    output-file: "EO-Urban-Monitoring-KCL.pdf"
+---
+
+{{< include 01-intro.qmd >}}
+
+{{< include 02-methods.qmd >}}
+
+{{< include 03-code.qmd >}}
+
+{{< include 04-classifier.qmd >}}

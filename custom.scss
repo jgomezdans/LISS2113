@@ -1,0 +1,33 @@
+/*-- scss:defaults --*/
+// KCL Brand Colors
+$kcl-red: #e2231a;
+$kcl-blue: #002147; // Deep KCL Blue (often used in footers/accents)
+$kcl-gray: #444444;
+
+// Quarto Variable Overrides
+$primary: $kcl-red;
+$link-color: $kcl-red;
+$navbar-bg: $kcl-red;
+$navbar-fg: white;
+
+// Typography
+$font-family-sans-serif: "Albert Sans", "Segoe UI", Roboto, sans-serif;
+
+/*-- scss:rules --*/
+// Style the sidebar to be subtle
+.sidebar nav[role=doc-toc] ul li>a.active, 
+.sidebar nav[role=doc-toc] ul li>a:hover {
+  color: $kcl-red;
+  border-left: 2px solid $kcl-red;
+}
+
+// Make the title block look professional
+.quarto-title-block .quarto-title-banner {
+  margin-bottom: 2em;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+// Custom styling for callouts to match the brand
+.callout.callout-style-default {
+  border-left-color: $kcl-red;
+}
