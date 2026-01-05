@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="José Gómez-Dans (KCL)">
+
+<title>Discussion – EO Urban Monitoring</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-bbe4538570691d822b9cc710a600008e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background: #e2231a;
+      }
+</style>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">EO Urban Monitoring</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">LISS2113</span>
+    </span>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./EO-Urban-Monitoring-KCL.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">Download Full PDF</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Discussion</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Discussion</h1>
+            <p class="subtitle lead">Complete Course Manual</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>José Gómez-Dans (KCL) </p>
+            </div>
+    </div>
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Methodology</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Create annual Landsat composites</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-classifier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Train, validate and run a classifier</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-discussion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Discussion</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#brief-description-of-the-activity" id="toc-brief-description-of-the-activity" class="nav-link" data-scroll-target="#brief-description-of-the-activity">Brief description of the activity</a></li>
+  </ul></li>
+  <li><a href="#data-and-methods" id="toc-data-and-methods" class="nav-link" data-scroll-target="#data-and-methods">Data and methods</a>
+  <ul class="collapse">
+  <li><a href="#google-earth-engine-gee" id="toc-google-earth-engine-gee" class="nav-link" data-scroll-target="#google-earth-engine-gee">Google Earth Engine (GEE)</a></li>
+  <li><a href="#annual-composite-creation-method" id="toc-annual-composite-creation-method" class="nav-link" data-scroll-target="#annual-composite-creation-method">Annual composite creation method</a></li>
+  <li><a href="#supervised-classification-and-class-definition" id="toc-supervised-classification-and-class-definition" class="nav-link" data-scroll-target="#supervised-classification-and-class-definition">Supervised classification and class definition</a></li>
+  </ul></li>
+  <li><a href="#creating-an-annual-composite-in-gee" id="toc-creating-an-annual-composite-in-gee" class="nav-link" data-scroll-target="#creating-an-annual-composite-in-gee">Creating an annual composite in GEE</a>
+  <ul class="collapse">
+  <li><a href="#setting-up-some-variables" id="toc-setting-up-some-variables" class="nav-link" data-scroll-target="#setting-up-some-variables">Setting up some variables</a></li>
+  <li><a href="#map-setup" id="toc-map-setup" class="nav-link" data-scroll-target="#map-setup">Map setup</a></li>
+  <li><a href="#selecting-landsat-data" id="toc-selecting-landsat-data" class="nav-link" data-scroll-target="#selecting-landsat-data">Selecting Landsat data</a></li>
+  <li><a href="#harmonise-sensors" id="toc-harmonise-sensors" class="nav-link" data-scroll-target="#harmonise-sensors">Harmonise sensors</a></li>
+  <li><a href="#add-indices" id="toc-add-indices" class="nav-link" data-scroll-target="#add-indices">Add indices</a></li>
+  <li><a href="#build-a-per-year-image-collection" id="toc-build-a-per-year-image-collection" class="nav-link" data-scroll-target="#build-a-per-year-image-collection">Build a per year image collection</a></li>
+  <li><a href="#the-annual-composite" id="toc-the-annual-composite" class="nav-link" data-scroll-target="#the-annual-composite">The annual composite!</a></li>
+  <li><a href="#display-the-composite" id="toc-display-the-composite" class="nav-link" data-scroll-target="#display-the-composite">Display the composite</a></li>
+  <li><a href="#export-sample-display-year-geotiff-to-google-drive" id="toc-export-sample-display-year-geotiff-to-google-drive" class="nav-link" data-scroll-target="#export-sample-display-year-geotiff-to-google-drive">Export sample display year GeoTIFF to Google Drive</a></li>
+  <li><a href="#export-all-the-years" id="toc-export-all-the-years" class="nav-link" data-scroll-target="#export-all-the-years">Export all the years</a></li>
+  <li><a href="#exporting-annual-mosaics-as-earth-engine-assets" id="toc-exporting-annual-mosaics-as-earth-engine-assets" class="nav-link" data-scroll-target="#exporting-annual-mosaics-as-earth-engine-assets">Exporting annual mosaics as Earth Engine Assets</a></li>
+  </ul></li>
+  <li><a href="#building-a-machine-learning-ml-classifier" id="toc-building-a-machine-learning-ml-classifier" class="nav-link" data-scroll-target="#building-a-machine-learning-ml-classifier">Building a machine learning (ML) classifier</a>
+  <ul class="collapse">
+  <li><a href="#collecting-training-data-in-google-earth-engine" id="toc-collecting-training-data-in-google-earth-engine" class="nav-link" data-scroll-target="#collecting-training-data-in-google-earth-engine">Collecting Training Data in Google Earth Engine</a></li>
+  <li><a href="#training-validating-and-applying-the-classifier" id="toc-training-validating-and-applying-the-classifier" class="nav-link" data-scroll-target="#training-validating-and-applying-the-classifier">Training, validating and applying the classifier</a></li>
+  <li><a href="#interpreting-the-classifier" id="toc-interpreting-the-classifier" class="nav-link" data-scroll-target="#interpreting-the-classifier">Interpreting the classifier</a></li>
+  </ul></li>
+  <li><a href="#tracking-urban-growth-using-eo.-discussion" id="toc-tracking-urban-growth-using-eo.-discussion" class="nav-link" data-scroll-target="#tracking-urban-growth-using-eo.-discussion">Tracking urban growth using EO. Discussion</a>
+  <ul class="collapse">
+  <li><a href="#the-bamako-case" id="toc-the-bamako-case" class="nav-link" data-scroll-target="#the-bamako-case">The Bamako case</a></li>
+  <li><a href="#a-typical-classification-problem" id="toc-a-typical-classification-problem" class="nav-link" data-scroll-target="#a-typical-classification-problem">A typical classification problem</a></li>
+  <li><a href="#the-most-important-lesson-watch-out-for-the-eo-hubris" id="toc-the-most-important-lesson-watch-out-for-the-eo-hubris" class="nav-link" data-scroll-target="#the-most-important-lesson-watch-out-for-the-eo-hubris">The most important lesson: Watch out for the EO hubris!!</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="EO-Urban-Monitoring-KCL.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This practical aims to showcase a fairly typical Earth Observation workflow: use the spaceborne acquired data to delineate or map different areas of interest. The actual application is to map the growth of cities (so to map “built-up” or “non-built-up” areas) over time.</p>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
+<p>Where cities expand (and where they don’t) affects the everyday life of their citizens: water, sanitation, access to education, jobs, exposure to adverse meteorological conditions, … In West Africa, most of this urban growth happens on the fringes, and is largely informal. This means that there is little information to e.g., provide required services once an area has been settled.</p>
+<p>Climate shocks can nudge these patterns. In many parts of West Africa, drought years hit rain-fed agriculture hard. When rural incomes fall, some people move, sometimes temporarily, sometimes permanently, toward larger cities with potentially better labour/livelihood opportunities. That movement can leave a spatial fingerprint: new, fast-growing neighbourhoods at the edge of the city, often on cheap or marginal land. In recent years, civil strife has also produced a large number of displaced people, compounding the drivers of the influx. Limited resources in this region often mean that information is woefully inadequate for policy makers to act on. Fast and informal growth can also increase risk of flooding (as settlements occur in floodplains, wetlands, or block drainage corridors). Dwellers can also become urban heat hotspots, in addition to issues carried out by lack of sanitation and clean drinking water.</p>
+<p>In the practical you will: (1) build annual Landsat composites, (2) classify land cover into urban, forest, vegetated, bare soil, and water using a Random Forest model, (3) create an urban-area time series, and (4) infer what’s going on. By the end, you’ll have a reproducible workflow and a set of figures that tell a clear story about how a West African city has changed. While you’ll be focussing on a particular city, the potential is there for running this analyses over larger and larger areas, and using this evidence to test for, e.g., quantising the “why” and the “how” of these migrations.</p>
+</section>
+<section id="brief-description-of-the-activity" class="level3">
+<h3 class="anchored" data-anchor-id="brief-description-of-the-activity">Brief description of the activity</h3>
+<div class="cell" data-fig-width="10" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    %% Define the nodes with simplified text
+    A["**1. Data Acquisition**&lt;br/&gt;Landsat &amp; Sentinel"]
+    B["**2. Pre-processing**&lt;br/&gt;Filtering &amp; Mosaicking"]
+    C["**3. Classification**&lt;br/&gt;Random Forest ML"]
+    D["**4. Analysis**&lt;br/&gt;Urban Growth Stats"]
+
+    %% Simple linear connections
+    A --&gt; B --&gt; C --&gt; D
+
+    %% Clean, professional styling
+    style A fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px
+    style B fill:#FFFDE7,stroke:#FBC02D,stroke-width:2px
+    style C fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    style D fill:#FFEBEE,stroke:#C62828,stroke-width:2px
+
+    %% Global font settings for the diagram
+    linkStyle default stroke:#666,stroke-width:2px;
+</pre>
+</div>
+<p></p><figcaption> Overall flow chart</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>In this activity, we’ll use data from the <a href="https://landsat.usgs.gov/landsat-archive-dashboard">Landsat archive</a>. The Landsat family of sensors is the longest continuous data record of EO data (since the early 1970s until now). The Landsat archive provides an incredible record of the changes and evolution of the land surface for the last half century. Using this data is not without challenges though: in order to cover such a large time span, different satellites carrying slightly different versions of the imaging sensor have been used, introducing discrepancies.</p>
+<p>Landsat is an optical sensor, and as such, cannot collect data at night, under clouds or under cloud shadows. In areas with persistent cloud cover, the 16-day revisit period for Landsat can result in a depressing meagre number of actual observations! Additionally, for surface applications, the effect of the atmosphere needs to be taking into account. A lot of effort has gone in homogenising and making the actual data as easy and useful to end users, via a process of “<a href="https://science.nasa.gov/mission/landsat/calibration-validation/">calibration and validation</a>”, and producing derived products that employ sophisticated algorithms to map clouds, correct for sensor differences, etc. While these advanced products are invaluable, it is hard to come up with a degree of quality that satisfies all users, so a degree of additional <em>preprocessing</em> is often a crucial step.</p>
+<p>In terms of urban growth, you will be looking at a time series data (e.g., from 2000 up to 2025, considering every fifth year), and looking to build a <em>classifier</em> that maps the data recorded by the sensor on each pixel to a fixed set of labels (e.g., “urban”, “water”, “vegetation”, etc.). The <em>classifier</em> needs to be defined, and this is done by gathering a so-called <em>training-validation-testing</em> dataset: you will need to select a large set of pixels and label them using the required class labels. Part of this dataset is used to then “train” the classifier, and part of it should be used to assess the quality of the classification and its uncertainty. Once the classifier is trained and validated, you can produce maps of different classes, and use them to quantify the urban growth.</p>
+</section>
+</section>
+<section id="data-and-methods" class="level2">
+<h2 class="anchored" data-anchor-id="data-and-methods">Data and methods</h2>
+<section id="google-earth-engine-gee" class="level3">
+<h3 class="anchored" data-anchor-id="google-earth-engine-gee">Google Earth Engine (GEE)</h3>
+<p>Even though the Landsat archive is free of charge and there are many ways of accessing it and using the data, here we will use <a href="https://earthengine.google.com/">Google Earth Engine</a>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Getting a GEE account
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will need a Google (or a “gmail”) account and then you can signup for GEE <a href="https://earthengine.google.com/signup/">here</a>. Follow the instructions therein</p>
+<p><strong>Note that this process can take a few days to complete!!</strong></p>
+</div>
+</div>
+<p>GEE is a cloud based solution, in which most of the heavy processing is done in Google’s servers. The processing is defined using a high level computing language (we’ll use javascript via the browser here, but Python is another possibility). Generally speaking, we will do most of the processing on GEE via the browser, but will export results (as e.g., raster files) that can then be further explored in other software tools. <a href="#fig-gee-code-editor" class="quarto-xref">Figure&nbsp;1</a> shows a labelled screenshot of GEE’s main editor window.</p>
+<div id="fig-gee-code-editor" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gee-code-editor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="GEEcodeEditor.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gee-code-editor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The GEE code editor (from <a href="https://open-mrv.readthedocs.io/">here</a>)
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="annual-composite-creation-method" class="level3">
+<h3 class="anchored" data-anchor-id="annual-composite-creation-method">Annual composite creation method</h3>
+<section id="satellite-data" class="level4">
+<h4 class="anchored" data-anchor-id="satellite-data">Satellite data</h4>
+<p>We use Landsat surface reflectance data provided through Google Earth Engine. Landsat offers a unique, continuous global record of Earth observations from the 1980s to the present, making it particularly suitable for long-term urban studies. To ensure consistency across time, we combine data from multiple Landsat sensors:</p>
+<ul>
+<li>Landsat 5 TM (for earlier years)</li>
+<li>Landsat 7 ETM+</li>
+<li>Landsat 8 OLI</li>
+<li>Landsat 9 OLI-2</li>
+</ul>
+<p>All datasets are taken from the <a href="https://www.usgs.gov/landsat-missions/landsat-collection-2-surface-reflectance">Collection 2, Tier 1, Level-2 Surface Reflectance products</a>. These data have already been radiometrically calibrated and atmospherically corrected, allowing surface reflectance values to be compared across sensors and years.</p>
+</section>
+<section id="temporal-selection" class="level4">
+<h4 class="anchored" data-anchor-id="temporal-selection">Temporal selection</h4>
+<p>The analysis will be performed for the following years: 2000, 2005, 2010, 2015, 2020, and 2024 These snapshots provide a simple but effective way to visualise long-term urban expansion.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="#fig-bamako" class="quarto-xref">Figure&nbsp;2</a> is the typical cloudiness in Bamako (from <a href="https://www.meteoblue.com/en/weather/historyclimate/climatemodelled/bamako_mali_2460596">here</a>)</p>
+<div id="fig-bamako" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bamako-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bamako.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bamako-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Bamako cloudiness/precipitation meteogram
+</figcaption>
+</figure>
+</div>
+<p>Does that suggest anything useful in terms of creating an annual mosaic? Can yuou think of any period(s) that might be most useful and why?</p>
+</div>
+</div>
+</section>
+<section id="cloud-masking-and-quality-control" class="level4">
+<h4 class="anchored" data-anchor-id="cloud-masking-and-quality-control">Cloud masking and quality control</h4>
+<p>Satellite images are affected by clouds, cloud shadows, and other artefacts that can obscure the surface. To address this, we apply a quality mask based on the Landsat <code>QA_PIXEL</code> band. Pixels flagged as any of the following are removed:</p>
+<ul>
+<li>Fill (missing data)</li>
+<li>Dilated cloud</li>
+<li>Cirrus cloud</li>
+<li>Cloud</li>
+<li>Cloud shadow</li>
+</ul>
+<p>In addition, scenes are filtered using metadata to retain only images with less than 70% reported cloud cover. To keep processing efficient, no more than 25 images per year are used, prioritising the clearest scenes.</p>
+</section>
+<section id="band-harmonisation-and-scaling" class="level4">
+<h4 class="anchored" data-anchor-id="band-harmonisation-and-scaling">Band harmonisation and scaling</h4>
+<p>Different Landsat sensors store spectral bands using different band numbers. To allow images from different missions to be combined:</p>
+<p>Spectral bands are renamed to a common set of names (<code>blue</code>, <code>green</code>, <code>red</code>, <code>nir</code>, <code>swir1</code>, <code>swir2</code>). <a href="#tbl-bands" class="quarto-xref">Table&nbsp;1</a> shows what these bands represent.</p>
+<div id="tbl-bands" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bands-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Common Landsat spectral bands
+</figcaption>
+<div aria-describedby="tbl-bands-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 25%">
+<col style="width: 29%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Band name</th>
+<th>Spectral region</th>
+<th>Approx. wavelength (nm)</th>
+<th>What it is commonly used for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>blue</td>
+<td>Blue</td>
+<td>450–510</td>
+<td>Water, haze, urban features</td>
+</tr>
+<tr class="even">
+<td>green</td>
+<td>Green</td>
+<td>520–600</td>
+<td>Vegetation reflectance, urban areas</td>
+</tr>
+<tr class="odd">
+<td>red</td>
+<td>Red</td>
+<td>630–690</td>
+<td>Vegetation vs built-up contrast</td>
+</tr>
+<tr class="even">
+<td>nir</td>
+<td>Near-infrared (NIR)</td>
+<td>760–900</td>
+<td>Vegetation health, biomass</td>
+</tr>
+<tr class="odd">
+<td>swir1</td>
+<td>Shortwave IR (SWIR)</td>
+<td>1550–1750</td>
+<td>Built-up areas, soil, moisture</td>
+</tr>
+<tr class="even">
+<td>swir2</td>
+<td>Shortwave IR (SWIR)</td>
+<td>2080–2350</td>
+<td>Urban materials, dryness, fire scars</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This harmonisation step ensures that reflectance values are directly comparable across sensors and years.</p>
+</div>
+</div>
+<p>Surface reflectance values are rescaled using the official Landsat Collection 2 scaling factors</p>
+</section>
+<section id="additional-spectral-features-indices" class="level4">
+<h4 class="anchored" data-anchor-id="additional-spectral-features-indices">Additional spectral <em>features</em> (“indices”)</h4>
+<div id="fig-reflectance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reflectance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="The-spectral-reflectance-curves-of-vegetation-cropland-building-soil-water_W640.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reflectance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Sample spectral reflectance of vegetation, crops, built-up, bare soils and water classes (from <a href="https://doi.org/10.1016/j.isprsjprs.2017.11.006">DOI:10.1016/j.isprsjprs.2017.11.006</a>
+</figcaption>
+</figure>
+</div>
+<p>Some simple manipulations of reflectance are useful to differentiate different land cover classes. For example, the large reflectance contrast between the <code>nir</code> and <code>red</code> bands in healthy vegetation (see <a href="#fig-reflectance" class="quarto-xref">Figure&nbsp;3</a>) can be used to detect its prevalence. Similar empirical relationships have been investigated for other scene types, such as urban areas or water. In <a href="#tbl-indices" class="quarto-xref">Table&nbsp;2</a> there’s brief summary of these</p>
+<div id="tbl-indices" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Useful empirical band combinations (<em>indices</em>)
+</figcaption>
+<div aria-describedby="tbl-indices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 15%">
+<col style="width: 37%">
+<col style="width: 28%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>Full name</th>
+<th>Formula (Landsat bands)</th>
+<th>What it highlights</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NDBI</td>
+<td>Normalised Difference Built-up Index</td>
+<td>(swir1 − nir) / (swir1 + nir)</td>
+<td>Built-up / impervious surfaces</td>
+<td>Simple, widely used; can confuse bare soil</td>
+</tr>
+<tr class="even">
+<td>UI</td>
+<td>Urban Index</td>
+<td>(swir2 − nir) / (swir2 + nir)</td>
+<td>Dense urban areas</td>
+<td>Strong urban contrast; more noise-sensitive</td>
+</tr>
+<tr class="odd">
+<td>IBI</td>
+<td>Index-based Built-up Index</td>
+<td>(NDBI − (NDVI + MNDWI)) / (NDBI + (NDVI + MNDWI))</td>
+<td>Built-up areas with vegetation and water suppressed</td>
+<td>More complex but very effective</td>
+</tr>
+<tr class="even">
+<td>EBBI</td>
+<td>Enhanced Built-up and Bareness Index</td>
+<td>(swir1 − nir) / (10 × √(swir1 + TIR))</td>
+<td>Built-up vs bare soil</td>
+<td>Requires thermal band; advanced</td>
+</tr>
+<tr class="odd">
+<td>NDVI</td>
+<td>Normalised Difference Vegetation Index</td>
+<td>(nir − red) / (nir + red)</td>
+<td>Vegetation</td>
+<td>Often used as a vegetation mask, not an urban index</td>
+</tr>
+<tr class="even">
+<td>MNDWI</td>
+<td>Modified Normalised Difference Water Index</td>
+<td>(green − swir1) / (green + swir1)</td>
+<td>Water bodies</td>
+<td>Used within IBI to suppress water</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="annual-image-composites" class="level4">
+<h4 class="anchored" data-anchor-id="annual-image-composites">Annual image composites</h4>
+<p>For each year, all selected and processed images are combined into a single annual composite using the median value of each pixel. Using the median:</p>
+<ul>
+<li>Reduces the influence of residual clouds or outliers</li>
+<li>Produces a more stable and representative image of surface conditions</li>
+<li>Is well suited for urban studies where abrupt extremes are not desired</li>
+</ul>
+<p>Each annual composite is clipped to the AOI and assigned a timestamp corresponding to the study year.</p>
+</section>
+<section id="visualisation" class="level4">
+<h4 class="anchored" data-anchor-id="visualisation">Visualisation</h4>
+<p>For exploratory analysis, annual composites are displayed as true-colour (RGB) images using the red, green, and blue bands. A consistent reflectance stretch is applied across all years to ensure that visual differences primarily reflect real land surface change rather than display settings.</p>
+</section>
+<section id="summary" class="level4">
+<h4 class="anchored" data-anchor-id="summary">Summary</h4>
+<p>In this first stage of the practical, we:</p>
+<p>1 .Define an urban area of interest 2. Select multi-decadal Landsat surface reflectance data 3. Apply cloud masking and quality filtering 4. Harmonise spectral bands across sensors 5. Create annual composites with different feature sets</p>
+<p>These annual mosaics form the foundation for later steps in the practical, where we will quantify and interpret urban growth patterns.</p>
+</section>
+</section>
+<section id="supervised-classification-and-class-definition" class="level3">
+<h3 class="anchored" data-anchor-id="supervised-classification-and-class-definition">Supervised classification and class definition</h3>
+<p>To map urban expansion, we use a <em>supervised classification</em> approach. In supervised classification, the algorithm “learns” how different land cover types appear in satellite data based on <em>training samples</em> provided by the user. In this practical, you can define three or four land cover classes (e.g., built-up areas, vegetation, bare soil, and water. Although all classes are included to improve discrimination, the primary focus of the analysis is on identifying <strong>built-up (urban) areas</strong> accurately.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Having additional classes can be useful if there are some uninteresting” classes are very distinct (e.g.&nbsp;water or vegetation) that can confuse the algorithm.</p>
+</div>
+</div>
+<p>Training data are provided as a <strong>labelled feature collection</strong>, where each feature represents a location with a known land cover class. These training labels are typically created by manually digitising polygons or points using high-resolution imagery as reference. Each training feature contains a class identifier (e.g.&nbsp;an integer code) that links the sample to one of the four land cover types. Spectral values and indices (e.g.&nbsp;NDBI, NDVI) are extracted from the Landsat composites at these locations and used as input to the classifier.</p>
+<p>We use a <strong>Random Forest (RF)</strong> classifier, which is an ensemble machine-learning method based on many decision trees. RF is well suited to remote sensing applications because it handles non-linear relationships, is relatively robust to noise, and performs well with a limited number of training samples. The labelled data are split into training and testing subsets, typically using a random partition (for example, 70% for training and 30% for testing). The training subset is used to build the model, while the testing subset provides an independent estimate of classification accuracy.</p>
+<p>Model performance can be roughly <em>validated</em> using a confusion matrix and overall accuracy derived from the testing data. Additional qualitative validation is encouraged by visually comparing the classified map with true-colour imagery and checking whether built-up areas correspond to known urban features such as dense neighbourhoods and road networks. This combination of quantitative and visual checks will helpyou assess the suitability of your results and whether they are fit for purpose.</p>
+</section>
+</section>
+<section id="creating-an-annual-composite-in-gee" class="level2">
+<h2 class="anchored" data-anchor-id="creating-an-annual-composite-in-gee">Creating an annual composite in GEE</h2>
+<p>This is the actual code that performs this. Most of the code is standard boilerplate, so it’s fundamentally a “cut and paste” job, but you should change options and see the results! While all these different snippets are given individually, you should copy them <strong>in sequence</strong> in the code editor.</p>
+<p>I will use using Bamako for this example, but you’ll have to change this to other cities!</p>
+<section id="setting-up-some-variables" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-some-variables">Setting up some variables</h3>
+<p>It’s a good idea to define options and variables once, and keep referring to them. If you want to change things later on, you can do this in a managed way.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * SETTINGS (you can edit these)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">// City and AOI (example: Bamako)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cityName <span class="op">=</span> <span class="st">'Bamako'</span><span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cityPoint <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([<span class="op">-</span><span class="fl">8.0029</span><span class="op">,</span> <span class="fl">12.6392</span>])<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">// AOI size: buffer radius in metres </span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> aoiRadiusMeters <span class="op">=</span> <span class="dv">20000</span><span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Target years for the practical</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> targetYears <span class="op">=</span> [<span class="dv">2000</span><span class="op">,</span> <span class="dv">2005</span><span class="op">,</span> <span class="dv">2010</span><span class="op">,</span> <span class="dv">2015</span><span class="op">,</span> <span class="dv">2020</span><span class="op">,</span> <span class="dv">2024</span>]<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">// Choose an annual period to calculate the mosaic</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> seasonStartMonth <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>  <span class="co">// January</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> seasonEndMonth   <span class="op">=</span> <span class="dv">4</span><span class="op">;</span>  <span class="co">// April (end is handled as May 1 below)</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">// Scene filtering knobs (speed + robustness)</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> maxCloudCoverPercent <span class="op">=</span> <span class="dv">70</span><span class="op">;</span> <span class="co">// pre-filter scenes by metadata cloud cover</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> maxScenesPerYear <span class="op">=</span> <span class="dv">25</span><span class="op">;</span>     <span class="co">// keep only the clearest N scenes (big speed win)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">// Visualisation stretch for reflectance RGB/false colour (scaled reflectance ~0–1)</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rgbVis <span class="op">=</span> {<span class="dt">min</span><span class="op">:</span> <span class="fl">0.0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.30</span>}<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="map-setup" class="level3">
+<h3 class="anchored" data-anchor-id="map-setup">Map setup</h3>
+<p>We will also select our region (simply my creating a circular buffer around the centre lat/lon of Bamako)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * MAP SETUP (AOI, quick sanity check)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> aoi <span class="op">=</span> cityPoint<span class="op">.</span><span class="fu">buffer</span>(aoiRadiusMeters)<span class="op">;</span> <span class="co">// simple circular AOI (robust geometry)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(aoi<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span> <span class="co">// 12 is the initial zoom level</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(aoi<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> <span class="st">'yellow'</span>}<span class="op">,</span> cityName <span class="op">+</span> <span class="st">' AOI'</span>)<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">// AOI area sanity check (needs a small maxError)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'AOI area (km^2):'</span><span class="op">,</span> aoi<span class="op">.</span><span class="fu">area</span>(<span class="dv">1</span>)<span class="op">.</span><span class="fu">divide</span>(<span class="fl">1e6</span>))<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="selecting-landsat-data" class="level3">
+<h3 class="anchored" data-anchor-id="selecting-landsat-data">Selecting Landsat data</h3>
+<p>The following snippet selects the different Landsat collections (we need different sensors to cover our large temporal period). The Landsat L2 collection has a per pixel field callec <code>QA_PIXEL</code> that encodes whether a cloud or shadow has been detected. It also uses a dilated mask to try to mask cloud shadows. We then need to scale the data to units of reflectance (a number between 0 and 1), and additionally, we remove (mask) any pixels where the reflectance is outside this range (can happen due to to processing issues), or whether any of the bands are missing.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * LOAD RAW LANDSAT COLLECTIONS (Collection 2, Level-2)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * We keep these “raw” collections separate from preprocessing.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * Important idea: filter on metadata first, then map() preprocessing.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat5_raw <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">'LANDSAT/LT05/C02/T1_L2'</span>)<span class="op">;</span> <span class="co">// Landsat 5 TM</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat7_raw <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">'LANDSAT/LE07/C02/T1_L2'</span>)<span class="op">;</span> <span class="co">// Landsat 7 ETM+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat8_raw <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">'LANDSAT/LC08/C02/T1_L2'</span>)<span class="op">;</span> <span class="co">// Landsat 8 OLI</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat9_raw <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">'LANDSAT/LC09/C02/T1_L2'</span>)<span class="op">;</span> <span class="co">// Landsat 9 OLI-2</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"> * CLOUD/SHADOW MASKING (using QA_PIXEL)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"> * We use QA_PIXEL bits to remove:</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Fill</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Dilated cloud</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Cirrus</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Cloud</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Cloud shadow</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"> * This is deliberately “simple but decent” for a taster practical.</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">qaCloudShadowMask_C2L2</span>(image) {</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> qa <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">'QA_PIXEL'</span>)<span class="op">;</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Build a single-band boolean mask:</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 1 means “keep”, 0 means “mask out”</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> mask <span class="op">=</span> qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">0</span>)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>)   <span class="co">// not fill</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">and</span>(qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">1</span>)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>))      <span class="co">// not dilated cloud</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">and</span>(qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">2</span>)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>))      <span class="co">// not cirrus</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">and</span>(qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">3</span>)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>))      <span class="co">// not cloud</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">and</span>(qa<span class="op">.</span><span class="fu">bitwiseAnd</span>(<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">4</span>)<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>))<span class="op">;</span>     <span class="co">// not cloud shadow</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mask<span class="op">;</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="co"> * REFLECTANCE SCALING + "FEATURE HYGIENE"</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="co"> * Landsat C2 L2 SR scaling:</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="co"> *   SR = DN * 0.0000275 + (-0.2)</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Clamp reflectance to [0, 1] to avoid odd outliers.</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Mask pixels where any band is missing (edges, artefacts).</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">scaleAndCleanReflectance</span>(srImage) {</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Apply the scaling</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> scaled <span class="op">=</span> srImage<span class="op">.</span><span class="fu">multiply</span>(<span class="fl">0.0000275</span>)<span class="op">.</span><span class="fu">add</span>(<span class="op">-</span><span class="fl">0.2</span>)<span class="op">;</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Clamp to a sensible range</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  scaled <span class="op">=</span> scaled<span class="op">.</span><span class="fu">clamp</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Mask out pixels where any band is missing/invalid</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>  <span class="co">// (reduce(min) checks for missing values across bands)</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> allBandsPresent <span class="op">=</span> scaled<span class="op">.</span><span class="fu">reduce</span>(ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">min</span>())<span class="op">.</span><span class="fu">gte</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> scaled<span class="op">.</span><span class="fu">updateMask</span>(allBandsPresent)<span class="op">;</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="harmonise-sensors" class="level3">
+<h3 class="anchored" data-anchor-id="harmonise-sensors">Harmonise sensors</h3>
+<p>The different Landsat sensors have different band names. Here, we relabel them to a common set of names. We use the previous code snippets to apply the cloud mask, reflectance scaling and additional cleaning up to the data.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * SENSOR HARMONISATION (common band names)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * Landsat 5/7 SR bands: SR_B1..SR_B5, SR_B7 (Band 6 is thermal ST_B6)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * Landsat 8/9 SR bands: SR_B2..SR_B7 (Band 1 is coastal; we ignore it)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"> * We rename to a common 6-band set:</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"> *   blue, green, red, nir, swir1, swir2</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">prepLandsat57</span>(image) {</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> mask <span class="op">=</span> <span class="fu">qaCloudShadowMask_C2L2</span>(image)<span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> sr <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SR_B1'</span><span class="op">,</span><span class="st">'SR_B2'</span><span class="op">,</span><span class="st">'SR_B3'</span><span class="op">,</span><span class="st">'SR_B4'</span><span class="op">,</span><span class="st">'SR_B5'</span><span class="op">,</span><span class="st">'SR_B7'</span>]<span class="op">,</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'blue'</span><span class="op">,</span><span class="st">'green'</span><span class="op">,</span><span class="st">'red'</span><span class="op">,</span><span class="st">'nir'</span><span class="op">,</span><span class="st">'swir1'</span><span class="op">,</span><span class="st">'swir2'</span>]</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> cleaned <span class="op">=</span> <span class="fu">scaleAndCleanReflectance</span>(sr)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">updateMask</span>(mask)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">copyProperties</span>(image<span class="op">,</span> image<span class="op">.</span><span class="fu">propertyNames</span>())<span class="op">;</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> cleaned<span class="op">;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">prepLandsat89</span>(image) {</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> mask <span class="op">=</span> <span class="fu">qaCloudShadowMask_C2L2</span>(image)<span class="op">;</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> sr <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'SR_B2'</span><span class="op">,</span><span class="st">'SR_B3'</span><span class="op">,</span><span class="st">'SR_B4'</span><span class="op">,</span><span class="st">'SR_B5'</span><span class="op">,</span><span class="st">'SR_B6'</span><span class="op">,</span><span class="st">'SR_B7'</span>]<span class="op">,</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'blue'</span><span class="op">,</span><span class="st">'green'</span><span class="op">,</span><span class="st">'red'</span><span class="op">,</span><span class="st">'nir'</span><span class="op">,</span><span class="st">'swir1'</span><span class="op">,</span><span class="st">'swir2'</span>]</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> cleaned <span class="op">=</span> <span class="fu">scaleAndCleanReflectance</span>(sr)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">updateMask</span>(mask)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">copyProperties</span>(image<span class="op">,</span> image<span class="op">.</span><span class="fu">propertyNames</span>())<span class="op">;</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> cleaned<span class="op">;</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="add-indices" class="level3">
+<h3 class="anchored" data-anchor-id="add-indices">Add indices</h3>
+<p>In many applications, spectral band combinations can be useful to enhance the signal and facilitate classification. They’re also quite useful to visually interpret images qualitatively, so we’ll add a bunch of them here.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * ADD INDICES (extra feature bands for classification)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * Indices included:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - NDVI  (vegetation)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - MNDWI (water)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - NDBI  (built-up proxy)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - UI    (simple urban index): UI = NDBI - NDVI (easy to explain)</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - IBI   (index-based built-up index): contrasts built-up vs veg+water</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - BRIGHT (optional): mean reflectance as a simple brightness feature</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"> * Note: There are multiple definitions in the literature;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">safeDivide</span>(numerator<span class="op">,</span> denominator) {</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Avoid divide-by-zero (if den == 0, set it to 1)</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  denominator <span class="op">=</span> denominator<span class="op">.</span><span class="fu">where</span>(denominator<span class="op">.</span><span class="fu">eq</span>(<span class="dv">0</span>)<span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> numerator<span class="op">.</span><span class="fu">divide</span>(denominator)<span class="op">;</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">addFeatureIndices</span>(img) {</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">// These assume our common bands exist: red, green, nir, swir1</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> ndvi  <span class="op">=</span> img<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">'nir'</span><span class="op">,</span> <span class="st">'red'</span>])<span class="op">.</span><span class="fu">rename</span>(<span class="st">'NDVI'</span>)<span class="op">;</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> mndwi <span class="op">=</span> img<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">'green'</span><span class="op">,</span> <span class="st">'swir1'</span>])<span class="op">.</span><span class="fu">rename</span>(<span class="st">'MNDWI'</span>)<span class="op">;</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> ndbi  <span class="op">=</span> img<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">'swir1'</span><span class="op">,</span> <span class="st">'nir'</span>])<span class="op">.</span><span class="fu">rename</span>(<span class="st">'NDBI'</span>)<span class="op">;</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Simple urban index (teachable): built-up proxy minus vegetation</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> ui <span class="op">=</span> ndbi<span class="op">.</span><span class="fu">subtract</span>(ndvi)<span class="op">.</span><span class="fu">rename</span>(<span class="st">'UI'</span>)<span class="op">;</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">// IBI (common formulation)</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> avgVegWater <span class="op">=</span> ndvi<span class="op">.</span><span class="fu">add</span>(mndwi)<span class="op">.</span><span class="fu">divide</span>(<span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> ibi <span class="op">=</span> <span class="fu">safeDivide</span>(ndbi<span class="op">.</span><span class="fu">subtract</span>(avgVegWater)<span class="op">,</span> ndbi<span class="op">.</span><span class="fu">add</span>(avgVegWater))<span class="op">.</span><span class="fu">rename</span>(<span class="st">'IBI'</span>)<span class="op">;</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Brightness: average reflectance (very intuitive for students)</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> bright <span class="op">=</span> img<span class="op">.</span><span class="fu">select</span>([<span class="st">'blue'</span><span class="op">,</span><span class="st">'green'</span><span class="op">,</span><span class="st">'red'</span><span class="op">,</span><span class="st">'nir'</span><span class="op">,</span><span class="st">'swir1'</span><span class="op">,</span><span class="st">'swir2'</span>])</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">reduce</span>(ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>())</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">rename</span>(<span class="st">'BRIGHT'</span>)<span class="op">;</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> img<span class="op">.</span><span class="fu">addBands</span>([ndvi<span class="op">,</span> mndwi<span class="op">,</span> ndbi<span class="op">,</span> ui<span class="op">,</span> ibi<span class="op">,</span> bright])<span class="op">;</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="build-a-per-year-image-collection" class="level3">
+<h3 class="anchored" data-anchor-id="build-a-per-year-image-collection">Build a per year image collection</h3>
+<p>Now, all the stuff we defined above will start to get used. We need to build a stack of cleaned images per year that cover our region of interest, are masked for clouds etc. For years before 2013, we’ll use Landsat 5 and 7, for years afterwards, we’ll use Landsat 8 and 9. Note that we’re using the variables defined at the top to control things like maximum cloud coverage etc.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * BUILD A PER-YEAR IMAGE COLLECTION (filter first, then map)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * Steps:</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Choose a sensor group depending on year (&lt;=2012 uses L5+L7; &gt;=2013 uses L8+L9)</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Filter by AOI and dry-season date window</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Filter by CLOUD_COVER metadata, sort clearest-first, keep top N scenes</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Map preprocessing (mask + scale + rename bands)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">getSeasonDateRange</span>(year) {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  year <span class="op">=</span> ee<span class="op">.</span><span class="fu">Number</span>(year)<span class="op">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> start <span class="op">=</span> ee<span class="op">.</span><span class="at">Date</span><span class="op">.</span><span class="fu">fromYMD</span>(year<span class="op">,</span> seasonStartMonth<span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// endMonth is inclusive-ish: we use the first day of the next month as end</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> end <span class="op">=</span> ee<span class="op">.</span><span class="at">Date</span><span class="op">.</span><span class="fu">fromYMD</span>(year<span class="op">,</span> seasonEndMonth <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {<span class="dt">start</span><span class="op">:</span> start<span class="op">,</span> <span class="dt">end</span><span class="op">:</span> end}<span class="op">;</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">collectionForYear</span>(year) {</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  year <span class="op">=</span> ee<span class="op">.</span><span class="fu">Number</span>(year)<span class="op">;</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> range <span class="op">=</span> <span class="fu">getSeasonDateRange</span>(year)<span class="op">;</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Choose sensors based on era</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> rawCollection <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="at">Algorithms</span><span class="op">.</span><span class="fu">If</span>(</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>      year<span class="op">.</span><span class="fu">lte</span>(<span class="dv">2012</span>)<span class="op">,</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>      landsat5_raw<span class="op">.</span><span class="fu">merge</span>(landsat7_raw)<span class="op">,</span>   <span class="co">// 2000–2012 era</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>      landsat8_raw<span class="op">.</span><span class="fu">merge</span>(landsat9_raw)    <span class="co">// 2013+ era</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Filter on raw metadata BEFORE preprocessing</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> filtered <span class="op">=</span> rawCollection</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">filterBounds</span>(aoi)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">filterDate</span>(range<span class="op">.</span><span class="at">start</span><span class="op">,</span> range<span class="op">.</span><span class="at">end</span>)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">filterMetadata</span>(<span class="st">'CLOUD_COVER'</span><span class="op">,</span> <span class="st">'less_than'</span><span class="op">,</span> maxCloudCoverPercent)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sort</span>(<span class="st">'CLOUD_COVER'</span>)</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">limit</span>(maxScenesPerYear)<span class="op">;</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Now map preprocessing and band harmonisation</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> prepped <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="at">Algorithms</span><span class="op">.</span><span class="fu">If</span>(</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>      year<span class="op">.</span><span class="fu">lte</span>(<span class="dv">2012</span>)<span class="op">,</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>      filtered<span class="op">.</span><span class="fu">map</span>(prepLandsat57)<span class="op">,</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>      filtered<span class="op">.</span><span class="fu">map</span>(prepLandsat89)</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> prepped<span class="op">;</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="the-annual-composite" class="level3">
+<h3 class="anchored" data-anchor-id="the-annual-composite">The annual composite!</h3>
+<p>You thought we’d never get here! The next bit defines how the composite gets done (using the median), adds the relevant indices and applies it to all the years.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * ANNUAL COMPOSITE (median) + indices</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * The “annual mosaic” is the median of all (masked) images in the season.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * Then we add indices so the final image is ready for classification.</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">annualComposite</span>(year) {</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  year <span class="op">=</span> ee<span class="op">.</span><span class="fu">Number</span>(year)<span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> col <span class="op">=</span> <span class="fu">collectionForYear</span>(year)<span class="op">;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Diagnostics: useful for teaching and debugging</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">'Year'</span><span class="op">,</span> year<span class="op">,</span> <span class="st">'images used:'</span><span class="op">,</span> col<span class="op">.</span><span class="fu">size</span>())<span class="op">;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Build the composite and add feature indices</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> composite <span class="op">=</span> <span class="fu">addFeatureIndices</span>(col<span class="op">.</span><span class="fu">median</span>())</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">clip</span>(aoi)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">set</span>(<span class="st">'year'</span><span class="op">,</span> year)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// time_start used later if we chart time series</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">set</span>(<span class="st">'system:time_start'</span><span class="op">,</span> ee<span class="op">.</span><span class="at">Date</span><span class="op">.</span><span class="fu">fromYMD</span>(year<span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">.</span><span class="fu">millis</span>())<span class="op">;</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> composite<span class="op">;</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">// Build mosaics for all target years</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> annualMosaics <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(targetYears<span class="op">.</span><span class="fu">map</span>(annualComposite))<span class="op">;</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Annual mosaics:'</span><span class="op">,</span> annualMosaics)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="display-the-composite" class="level3">
+<h3 class="anchored" data-anchor-id="display-the-composite">Display the composite</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * DISPLAY (choose one year to show)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * Show:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - RGB (natural colour)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - False colour (NIR / red / green) helps see vegetation strongly</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Indices (NDVI, MNDWI, NDBI, UI, IBI)</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"> * Note: we use visualize() for the RGB layers because it makes map</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"> * rendering snappier in the Code Editor.</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> displayYear <span class="op">=</span> <span class="dv">2020</span><span class="op">;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mosaicToShow <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  annualMosaics<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">eq</span>(<span class="st">'year'</span><span class="op">,</span> displayYear))<span class="op">.</span><span class="fu">first</span>()</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Always sanity-check the bands (helpful if something returns empty)</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Bands in displayed mosaic:'</span><span class="op">,</span> mosaicToShow<span class="op">.</span><span class="fu">bandNames</span>())<span class="op">;</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">// RGB and false colour previews</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  mosaicToShow<span class="op">.</span><span class="fu">select</span>([<span class="st">'red'</span><span class="op">,</span><span class="st">'green'</span><span class="op">,</span><span class="st">'blue'</span>])<span class="op">.</span><span class="fu">visualize</span>(rgbVis)<span class="op">,</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  {}<span class="op">,</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">'RGB '</span> <span class="op">+</span> displayYear</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  mosaicToShow<span class="op">.</span><span class="fu">select</span>([<span class="st">'nir'</span><span class="op">,</span><span class="st">'red'</span><span class="op">,</span><span class="st">'green'</span>])<span class="op">.</span><span class="fu">visualize</span>(rgbVis)<span class="op">,</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  {}<span class="op">,</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="st">'False colour (NIR/R/G) '</span> <span class="op">+</span> displayYear</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co">// Index layers (simple min/max for teaching; no palettes needed)</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(mosaicToShow<span class="op">.</span><span class="fu">select</span>(<span class="st">'NDVI'</span>)<span class="op">,</span>  {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.2</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.8</span>}<span class="op">,</span> <span class="st">'NDVI'</span>)<span class="op">;</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(mosaicToShow<span class="op">.</span><span class="fu">select</span>(<span class="st">'MNDWI'</span>)<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.6</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.6</span>}<span class="op">,</span> <span class="st">'MNDWI'</span>)<span class="op">;</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(mosaicToShow<span class="op">.</span><span class="fu">select</span>(<span class="st">'NDBI'</span>)<span class="op">,</span>  {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="fl">0.6</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">0.6</span>}<span class="op">,</span> <span class="st">'NDBI'</span>)<span class="op">;</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(mosaicToShow<span class="op">.</span><span class="fu">select</span>(<span class="st">'UI'</span>)<span class="op">,</span>    {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="fl">1.0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">1.0</span>}<span class="op">,</span> <span class="st">'UI (= NDBI - NDVI)'</span>)<span class="op">;</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(mosaicToShow<span class="op">.</span><span class="fu">select</span>(<span class="st">'IBI'</span>)<span class="op">,</span>   {<span class="dt">min</span><span class="op">:</span> <span class="op">-</span><span class="fl">1.0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="fl">1.0</span>}<span class="op">,</span> <span class="st">'IBI'</span>)<span class="op">;</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(mosaicToShow<span class="op">.</span><span class="fu">select</span>(<span class="st">'BRIGHT'</span>)<span class="op">,</span>{<span class="dt">min</span><span class="op">:</span> <span class="fl">0.0</span><span class="op">,</span>  <span class="dt">max</span><span class="op">:</span> <span class="fl">0.4</span>}<span class="op">,</span> <span class="st">'Brightness'</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="export-sample-display-year-geotiff-to-google-drive" class="level3">
+<h3 class="anchored" data-anchor-id="export-sample-display-year-geotiff-to-google-drive">Export sample display year GeoTIFF to Google Drive</h3>
+<p>For repeatibility and further analysis, we’ll export the data to your Google Drive. We’ll use the standard GeoTIFF format, with internal compression to make the data more manageable. This snippet exports a single year, make sure you’re happy with it before exporting all the years.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * EXPORT ONE YEAR MOSAIC TO GOOGLE DRIVE</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * Pattern:</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Export ONE year first (students learn exports without waiting ages)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"> *  - Later, export all years or the classification outputs</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Uncomment to export the displayed year mosaic (multiband)</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">image</span><span class="op">:</span> mosaicToShow<span class="op">,</span> <span class="co">// includes SR bands + indices</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">description</span><span class="op">:</span> cityName <span class="op">+</span> <span class="st">'_Mosaic_'</span> <span class="op">+</span> displayYear<span class="op">,</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">folder</span><span class="op">:</span> <span class="st">'GEE_exports'</span><span class="op">,</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">fileNamePrefix</span><span class="op">:</span> cityName <span class="op">+</span> <span class="st">'_Mosaic_'</span> <span class="op">+</span> displayYear<span class="op">,</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">region</span><span class="op">:</span> aoi<span class="op">,</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maxPixels</span><span class="op">:</span> <span class="fl">1e13</span><span class="op">,</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">fileFormat</span><span class="op">:</span> <span class="st">'GeoTIFF'</span><span class="op">,</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">formatOptions</span><span class="op">:</span> {</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">cloudOptimized</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span>   <span class="co">// Makes it a COG</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">compression</span><span class="op">:</span> <span class="st">'DEFLATE'</span> <span class="co">// Powerful lossless compression</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="export-all-the-years" class="level3">
+<h3 class="anchored" data-anchor-id="export-all-the-years">Export all the years</h3>
+<p>Once you’re happy with the single year export, it’s time to expoert all the years in one go.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**************************************************************</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * EXPORT ALL YEARS (one multiband GeoTIFF per year)</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * - Exports each annual mosaic (SR bands + indices) to Google Drive</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * - GeoTIFF options: cloud-optimised (COG) + DEFLATE compression</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"> **************************************************************/</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Folder in Google Drive</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> exportFolder <span class="op">=</span> <span class="st">'GEE_exports'</span><span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Choose a scale appropriate for Landsat SR</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> exportScale <span class="op">=</span> <span class="dv">30</span><span class="op">;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Loop over years and create one export task per year</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>targetYears<span class="op">.</span><span class="fu">forEach</span>(<span class="kw">function</span>(year) {</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> img <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    annualMosaics<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">eq</span>(<span class="st">'year'</span><span class="op">,</span> year))<span class="op">.</span><span class="fu">first</span>()</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  Export<span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">image</span><span class="op">:</span> img<span class="op">,</span>                       <span class="co">// multiband: SR + indices</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">description</span><span class="op">:</span> cityName <span class="op">+</span> <span class="st">'_Mosaic_'</span> <span class="op">+</span> year<span class="op">,</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">folder</span><span class="op">:</span> exportFolder<span class="op">,</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fileNamePrefix</span><span class="op">:</span> cityName <span class="op">+</span> <span class="st">'_Mosaic_'</span> <span class="op">+</span> year<span class="op">,</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">region</span><span class="op">:</span> aoi<span class="op">,</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">scale</span><span class="op">:</span> exportScale<span class="op">,</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">maxPixels</span><span class="op">:</span> <span class="fl">1e13</span><span class="op">,</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fileFormat</span><span class="op">:</span> <span class="st">'GeoTIFF'</span><span class="op">,</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="dt">formatOptions</span><span class="op">:</span> {</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>      <span class="dt">cloudOptimized</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>      <span class="dt">compression</span><span class="op">:</span> <span class="st">'DEFLATE'</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="exporting-annual-mosaics-as-earth-engine-assets" class="level3">
+<h3 class="anchored" data-anchor-id="exporting-annual-mosaics-as-earth-engine-assets">Exporting annual mosaics as Earth Engine Assets</h3>
+<p>So far, we have used Google Earth Engine to build annual mosaics for our city of interest. These mosaics exist only temporarily inside the script unless we explicitly save them. In addition to exporting images to Google Drive, Earth Engine allows us to export data as Assets, which are stored permanently within our Earth Engine account. Saving the mosaics as Assets is useful because they can be imported directly into other scripts without re-running the mosaicking workflow, making it easier to separate data preparation from later analysis steps such as classification or time-series analysis.</p>
+<p>To export an annual mosaic as an Asset, we select one of the mosaics from our <code>annualMosaics</code> ImageCollection and use <code>Export.image.toAsset()</code>. When doing this, we must specify:</p>
+<ul>
+<li>an asset ID, which defines where the image will be stored in our Earth Engine Assets,</li>
+<li>the region to export (our AOI),</li>
+<li>the spatial resolution (30 m for Landsat data).</li>
+</ul>
+<p>The example below exports the mosaic for a single year. Once the export task has completed, the image will appear in the Assets tab of the Earth Engine Code Editor and can be loaded in other scripts using its asset path.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Select the mosaic for the year we want to export</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> exportYear <span class="op">=</span> <span class="dv">2020</span><span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mosaicToExport <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  annualMosaics<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">eq</span>(<span class="st">'year'</span><span class="op">,</span> exportYear))<span class="op">.</span><span class="fu">first</span>()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Export the mosaic as a Google Earth Engine Asset</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">toAsset</span>({</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">image</span><span class="op">:</span> mosaicToExport<span class="op">,</span>                 <span class="co">// multiband image (SR + indices)</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">description</span><span class="op">:</span> cityName <span class="op">+</span> <span class="st">'_Mosaic_'</span> <span class="op">+</span> exportYear<span class="op">,</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">assetId</span><span class="op">:</span> <span class="st">'users/YOUR_USERNAME/'</span> <span class="op">+</span> cityName <span class="op">+</span> <span class="st">'_Mosaic_'</span> <span class="op">+</span> exportYear<span class="op">,</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">region</span><span class="op">:</span> aoi<span class="op">,</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maxPixels</span><span class="op">:</span> <span class="fl">1e13</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span> <span class="co">// Change YOUR_USERNAME with your own GEE username!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After starting the export, the task will appear in the Tasks tab of the Code Editor. <strong>You must manually click Run to begin the export</strong>. When it has finished, the mosaic can be reused in other Earth Engine scripts by loading it from the Assets panel, allowing you to work directly with the prepared annual composites without repeating the earlier processing steps.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="building-a-machine-learning-ml-classifier" class="level2">
+<h2 class="anchored" data-anchor-id="building-a-machine-learning-ml-classifier">Building a machine learning (ML) classifier</h2>
+<p>We now have pre-processed the data. We need to define the classifier, the mathematical function that maps from pixel features (e.g.&nbsp;reflectance, indices, etc) to land cover classes. Since we’re using a <em>supervised</em> method, we need to provide a set of known pairs of land cover vs “features” that can be used to “learn” how to label each pixel when only the features are available. In a real world scenario, we’d need some high quality “ground truth”, either by surveying, or by using e.g,, very high resolution (VHR) remote sensing, aircraft or UAV data. Since this is not available, we’ll simplify things a bit: you’ll have to select some training samples from the images you pre-processed. We’ll also just collect samples for one year, train the classifier on that single year, and assume that the mapping is adequate for all other years.</p>
+<section id="collecting-training-data-in-google-earth-engine" class="level3">
+<h3 class="anchored" data-anchor-id="collecting-training-data-in-google-earth-engine">Collecting Training Data in Google Earth Engine</h3>
+<p>We’ll build a <strong>categorical training dataset</strong> for supervised land cover classification, emphasising manual point collection within the Earth Engine Code Editor. Training data are essential for <strong>supervised classifiers</strong> because they provide labelled examples that the algorithm uses to “learn” how spectral information corresponds to real land cover types. In this context, classes such as <em>soil</em>, <em>water</em>, <em>vegetation</em>, and <em>built-up</em> (urban) are represented with integer labels (so water could be assigned label 0, built-up 1 and so on).</p>
+<section id="setting-up-training-layers" class="level4">
+<h4 class="anchored" data-anchor-id="setting-up-training-layers">Setting up training layers</h4>
+<p>First, you need to create <strong>new Feature Collections</strong> in the Earth Engine map interface to hold the labelled points. For each land cover class of interest, you:</p>
+<ol type="1">
+<li>Click the <strong>drawing tools</strong> button in the upper left of the map window to enable point drawing.</li>
+</ol>
+<p><img src="AddMarker.jpg" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Use the <strong>point marker tool</strong> to place points on the map that clearly represent a particular class based on your background data (e.g.&nbsp;built-up areas, vegetation, water, bare soil).</li>
+<li>In the <strong>Geometry Imports</strong> panel, click the gear icon next to the newly created “geometry” layer to rename it to something class-specific (e.g.&nbsp;<em>built_up</em>, <em>vegetation</em>), set “Import as” to <strong>FeatureCollection</strong>, and add a <strong>numeric property</strong> called <code>label</code> with a unique integer for that class.</li>
+</ol>
+<p><img src="./gee_feature_collection.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li>We have now defined where the some of the training samples will be stored. Go back to the <strong>point maker tool</strong>, and click on <strong>“+ Add layer”</strong>, and repeat the above procedure for another landcover classes so that each class has its own labelled point layer.</li>
+</ol>
+<p>You’ll notice that the different layers have been added to the top of the code editor window, under <code>Imports</code>. That means that you can access them within GEE.</p>
+<p>Images from your prepared <strong>2020 annual Landsat composite</strong> should be added as basemaps while doing this. You can also load high-resolution reference imagery (e.g., from the high-res GEE mosaic or your own assets) and <strong>toggle</strong> between these basemaps so you choose points where the class is confidently known and visible for that season. Make sure your reference imagery time overlaps with your 2020 composite to avoid labelling changes that occurred at different dates.</p>
+</section>
+<section id="collecting-training-points-with-the-mouse" class="level4">
+<h4 class="anchored" data-anchor-id="collecting-training-points-with-the-mouse">Collecting training points with the mouse</h4>
+<p>When you have the proper basemaps visible, you collect the training data by manually clicking on the map:</p>
+<ul>
+<li>Select the <strong>point layer</strong> you have set up for a class in the Geometry Imports panel.<br>
+</li>
+<li>Choose the <strong>point marker</strong> tool.<br>
+</li>
+<li>Click in the map window to place a <strong>point</strong> where you are confident the class is present (e.g., a clear urban rooftop for <em>built-up</em>, water body for <em>water</em>).<br>
+</li>
+<li>Toggle between your high-resolution basemap and your 2020 composite to make sure the labelled land cover matches both reference and classification imagery.<br>
+</li>
+<li>If you misplace a point, it can be <strong>moved or deleted</strong> with the pan hand tool.<br>
+</li>
+<li>Be sure to <strong>collect points throughout the entire AOI</strong> and include examples from the edges of class boundaries: want to the classifier to learn the variability within each class.<br>
+</li>
+<li>There is no fixed number of points needed; this is often iterative: you collect, classify, inspect errors, and add more as needed.</li>
+</ul>
+<p>Once all classes have suitable points collected, visualising them helps check that they are <strong>well distributed</strong> and sufficiently representative. Ideally, you want an even spread so that each class’s points cover the spatial and spectral variability within the AOI. After this, you merge the separate FeatureCollections into one combined collection and <strong>export</strong> it (for example to Google Drive or as an Earth Engine Asset) for use in classification workflows such as Random Forest.</p>
+</section>
+<section id="merging-the-training-set-and-exporting" class="level4">
+<h4 class="anchored" data-anchor-id="merging-the-training-set-and-exporting">Merging the training set and exporting</h4>
+<p>To merge all the classes into a single object, you can write the following code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> Bamako_training <span class="op">=</span> Forest<span class="op">.</span><span class="fu">merge</span>(Water)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                     <span class="op">.</span><span class="fu">merge</span>(Vegetation)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                     <span class="op">.</span><span class="fu">merge</span>(BuildUp) <span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can then save them to a GEE asset and/or a Google Drive export:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">table</span><span class="op">.</span><span class="fu">toAsset</span>({</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> Bamako_training<span class="op">,</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">description</span><span class="op">:</span> <span class="st">'BamakoTraining2020'</span><span class="op">,</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">assetId</span><span class="op">:</span> <span class="st">'BamakoTraining2020'</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span> <span class="co">// Exports to a GEE asset that you can re-import on other scripts!</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">table</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> Bamako_training<span class="op">,</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">description</span><span class="op">:</span> <span class="st">'BamakoTraining2020'</span><span class="op">,</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span> <span class="co">// As a safety precaution, it's a good idea to also export to a GeoJSON</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// file that you can e.g. open &amp; modify in QGIS etc.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="training-validating-and-applying-the-classifier" class="level3">
+<h3 class="anchored" data-anchor-id="training-validating-and-applying-the-classifier">Training, validating and applying the classifier</h3>
+<p>Now, let’s use a new script to train, validate and apply the classifier. We’ll need to import your training set and the 2018 annual mosaic into your workspace.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// The following code is my training set and mosaic. You should have</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">//something similar. Or you can go ahead and use mine! ;-)</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">//var trainingFC = ee.FeatureCollection("users/xgomezdans/BamakoTraining2018"),</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">//     image = ee.Image("users/xgomezdans/Bamako_Mosaic_2018");</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Let's select all the bands to go into the classifier. </span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">// You can test using a smaller subset and see how th classifier changes.</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bands <span class="op">=</span> [<span class="st">"blue"</span><span class="op">,</span> <span class="st">"green"</span><span class="op">,</span> <span class="st">"red"</span><span class="op">,</span> <span class="st">"nir"</span><span class="op">,</span> </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>             <span class="st">"swir1"</span><span class="op">,</span> <span class="st">"swir2"</span><span class="op">,</span> </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>             <span class="st">"NDVI"</span><span class="op">,</span> <span class="st">"MNDWI"</span><span class="op">,</span> <span class="st">"NDBI"</span><span class="op">,</span> <span class="st">"UI"</span><span class="op">,</span> <span class="st">"IBI"</span><span class="op">,</span> <span class="st">"BRIGHT"</span>] <span class="op">;</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(bands)<span class="op">;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">// We now extract the reflectance, indices for each of the training set sample points</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> samples <span class="op">=</span> image<span class="op">.</span><span class="fu">sampleRegions</span>({</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> trainingFC<span class="op">,</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">properties</span><span class="op">:</span> [<span class="st">'class'</span>]<span class="op">,</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">tileScale</span><span class="op">:</span> <span class="dv">4</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co">// Add random number for splitting</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> samplesRandom <span class="op">=</span> samples<span class="op">.</span><span class="fu">randomColumn</span>(<span class="st">'random'</span>)<span class="op">;</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co">// 70% training</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> trainSet <span class="op">=</span> samplesRandom<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">lt</span>(<span class="st">'random'</span><span class="op">,</span> <span class="fl">0.7</span>))<span class="op">;</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="co">// 30% testing</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> testSet <span class="op">=</span> samplesRandom<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">gte</span>(<span class="st">'random'</span><span class="op">,</span> <span class="fl">0.7</span>))<span class="op">;</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="co">// This is the RF algorithm. Takes our trainSet, our bands, and fits it.</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="co">// You may want to change the parameters below, it's a bit of a dark art!</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rf <span class="op">=</span> ee<span class="op">.</span><span class="at">Classifier</span><span class="op">.</span><span class="fu">smileRandomForest</span>({</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">numberOfTrees</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="dt">variablesPerSplit</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  <span class="dt">minLeafPopulation</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bagFraction</span><span class="op">:</span> <span class="fl">0.7</span><span class="op">,</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  <span class="dt">seed</span><span class="op">:</span> <span class="dv">42</span></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>})<span class="op">.</span><span class="fu">train</span>({</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>  <span class="dt">features</span><span class="op">:</span> trainSet<span class="op">,</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>  <span class="dt">classProperty</span><span class="op">:</span> <span class="st">'class'</span><span class="op">,</span></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>  <span class="dt">inputProperties</span><span class="op">:</span> bands</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a><span class="co">// Test on  the validation set....</span></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> validated <span class="op">=</span> testSet<span class="op">.</span><span class="fu">classify</span>(rf)<span class="op">;</span></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> confusionMatrix <span class="op">=</span> validated<span class="op">.</span><span class="fu">errorMatrix</span>(<span class="st">'class'</span><span class="op">,</span> <span class="st">'classification'</span>)<span class="op">;</span></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Confusion Matrix'</span><span class="op">,</span> confusionMatrix)<span class="op">;</span></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Overall Accuracy'</span><span class="op">,</span> confusionMatrix<span class="op">.</span><span class="fu">accuracy</span>())<span class="op">;</span></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Kappa'</span><span class="op">,</span> confusionMatrix<span class="op">.</span><span class="fu">kappa</span>())<span class="op">;</span></span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Producers Accuracy'</span><span class="op">,</span> confusionMatrix<span class="op">.</span><span class="fu">producersAccuracy</span>())<span class="op">;</span></span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Users Accuracy'</span><span class="op">,</span> confusionMatrix<span class="op">.</span><span class="fu">consumersAccuracy</span>())<span class="op">;</span></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a><span class="co">// Now classifiy the 2018 composite using the RF classifier....</span></span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> classified <span class="op">=</span> image<span class="op">.</span><span class="fu">classify</span>(rf)<span class="op">;</span></span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> palette <span class="op">=</span> [</span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>  <span class="st">'#4575b4'</span><span class="op">,</span>  <span class="co">// water</span></span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>  <span class="st">'#1a9850'</span><span class="op">,</span> <span class="co">// veg</span></span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>  <span class="st">'#d73027'</span><span class="op">,</span> <span class="co">// bare</span></span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>  <span class="st">'#fee08b'</span><span class="op">,</span> <span class="co">// builtup</span></span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(trainingFC<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(classified<span class="op">,</span></span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span> palette}<span class="op">,</span></span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Landcover Classification'</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In my data set, the overall accuracy was around 82%, with a <span class="math inline">\(\kappa\)</span> value around 0.74, which suggests that on the same year, and around Bamako, the classifier is pretty good. The confusion matrix gives as an interesting vista of the classifier’s performance:</p>
+<p>We can make the following observations:</p>
+<ul>
+<li><code>Water</code>: This is the most accurately classified category, with 47 out of 48 instances correctly identified.</li>
+<li>`Built up: This class shows strong performance with 114 correct predictions, though it occasionally absorbs misclassifications from Bare Soil and Veg.</li>
+<li>The biggest error occurs in the Bare Soil class, where only 23 out of 50 instances were correctly identified. A large portion of Bare Soil (13 instances) was misclassified as Vegetation, and another 13 were misclassified as Built up. This suggests a spectral similarity between these land cover types that the model is finding difficult to resolve.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What do you think causes this confusions?</p>
+</div>
+</div>
+</section>
+<section id="interpreting-the-classifier" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-the-classifier">Interpreting the classifier</h3>
+<p>ML methods are often defined as “black box” methos, in the sense that decisions they make are not obvious. We can try to shed some light on this by calculating some metrics and plotting scatterplots. For example, <a href="#fig-var-importance" class="quarto-xref">Figure&nbsp;4</a> shows the normlised Feature Importance for all the used Features. While MNDWI (the “water” index) is a bit higher than all the others, it looks as if the RF is using all the available information without being biased by any single features. <a href="#fig-ndvi-ndbi" class="quarto-xref">Figure&nbsp;5</a> shows the scatterplot between the NDVI and NDBI, but it’s not very informative: clearly, water is in the bottom right hand side, but we can see that all the other classes appear clustered in the top left, with quite a bit of overlap.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why do you think this is happening?</p>
+<p>Can you think of some other strategy to improve separation?</p>
+</div>
+</div>
+<div id="fig-var-importance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-var-importance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="VaraibleImportance.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-var-importance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Normlised Feature imortance for Bamako classifier
+</figcaption>
+</figure>
+</div>
+<div id="fig-ndvi-ndbi" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ndvi-ndbi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ndvi-ndbi.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ndvi-ndbi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Scatterplot of NDVI vs NDBI
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="tracking-urban-growth-using-eo.-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="tracking-urban-growth-using-eo.-discussion">Tracking urban growth using EO. Discussion</h2>
+<section id="the-bamako-case" class="level3">
+<h3 class="anchored" data-anchor-id="the-bamako-case">The Bamako case</h3>
+<p>Once you have your individual land cover masks, you can count pixels and plot the time series. In <a href="#fig-bamako-evolution" class="quarto-xref">Figure&nbsp;6</a>, I show the evolution of Bamako in Mali. The curve shows a fairly constant growth between 1975 and 2020, growing from around 60 square km to more than 140 square km, but the growth appears to flatten after 2020. Note that this could be an effect of the relatively small area we’re investigating (~20 km) becoming saturated and growth taking place elsewhere outside of our study area.</p>
+<p>We can also look at the spatial distribution of the growth (see <a href="#fig-bamako-map" class="quarto-xref">Figure&nbsp;7</a>). Clearly, Bamako has continue growing along the Niger River, but also outside from it, and we can see how the build up area ends up making a continuum between the main Bamako city and the towns that existed around it in 1975.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are interested in the particular case of Bamako, you can read <a href="https://doi.org/10.3390/urbansci5010004">(Keita et al.&nbsp;(2021))</a>. This paper does something similar to what you have done here.</p>
+</div>
+</div>
+<div id="fig-bamako-evolution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bamako-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Bamako_Evolution.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bamako-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Evolution of the size of build up area for a radial region centred in Bamako (Mali) and extending 20km.
+</figcaption>
+</figure>
+</div>
+<div id="fig-bamako-map" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bamako-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bamako_presence_superimposed_1975_2025.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bamako-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Built up extent of Bamako in 1975 (red) and 2025 (blue)
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="a-typical-classification-problem" class="level3">
+<h3 class="anchored" data-anchor-id="a-typical-classification-problem">A typical classification problem</h3>
+<p>What you’ve got through is a typical classification problem. The goal of the classification (e.g.the “labels” you are interested in) and the input data might be different, but generally speaking, this is the blueprint. There are of course degrees o f sophistication you could improve on. For example, in some tasks, the <em>dynamics</em> of the change are what is important. For example, if you are trying to map different types of trees, it might be useful to consider features in summer and winter, to easily separate evergreen and deciduous. Another refinement (specially if your data has a very fine spatial resolution) is to exploit the spatial context: in this practical, we have just taken pixels on their own, but pixels are often spatially correlated, so taking each pixel considering its neighbouring spatial context is a great idea. This is part of what makes so-called deep learning approaches so effective.</p>
+</section>
+<section id="the-most-important-lesson-watch-out-for-the-eo-hubris" class="level3">
+<h3 class="anchored" data-anchor-id="the-most-important-lesson-watch-out-for-the-eo-hubris">The most important lesson: Watch out for the EO hubris!!</h3>
+<p>Perhaps the most important lesson when thinking about using EO with your projects is to start thinking: “Surely, someone must have had a go at this before me?”. A large number of times, you will find that this is indeed the case, and that there is a large community of researchers that spend years finessing the best way of addressing the problem you’re trying to solve by creating “products”.</p>
+<p>Products are often freely available, well documented and validated, and if widely used, will have their inadequacies or other “glitches” exposed. For the case at hand, we could have used the <strong>Global Human Settlement Layer</strong> (described in some detail in <a href="https://doi.org/10.1080/17538947.2024.2390454">Pesaresi et al (2024)</a>). This dataset extends EO data with detailed census data, and has been widely validated. Even if your final task is to use e.g., very high resolution optical data to map <a href="https://remote-sensing.org/a-decade-of-research-on-poverty-slums-and-informal-settlements-with-remote-sensing/">slums</a>, it is well worth considering using established products to at least cross-compare or to add additional information that simplifies your task.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
