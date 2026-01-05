@@ -1,0 +1,54 @@
+---
+title: "Monitoring African Urban Growth using Earth Observation"
+subtitle: "LTSS"
+author:
+  - name: José Gómez-Dans
+    email: jose.gomez-dans@kcl.ac.uk
+    orcid: 0000-0003-4787-8307
+    affiliations:
+      - name: King's College London
+        department: Geography
+        city: London
+        country: UK
+date: last-modified
+---
+
+# Welcome
+
+This practical will show you how to use optical Earth Observation data from the Landsat family of satellites to monitor urban expansion in West African cities. The practical uses Google Earth Engine to access the data and perform most of the tasks. 
+
+::: {.callout-tip}
+While GEE is now free to use for non commercial applications, the techniques are very general, and you can use them in other platforms/environments, and for other mapping/classification tasks.
+
+:::
+
+
+
+## Learning Objectives
+By the end of this practical, you will have had experience in
+* Access and filter large-scale satellite image collections (Landsat).
+* Implement urban detection algorithms using JavaScript in GEE.
+* Quantify spatial growth rates for a chosen city.
+* Export publication-quality maps and data.
+
+## Practical Structure
+The workshop is divided into three main stages:
+
+1.  **[Introduction](01-intro.qmd)**: Some background reading and other useful information.
+2.  **[Data & methods](02-methods.qmd)**: A detailed description of the different tasks that you'll undertake.
+3.  **[The actual code](03-code.qmd)**: The actual GEE code!
+
+::: {.callout-important}
+## Prerequisites
+This practical assumes you have a Google Earth Engine account approved. If you do not, please notify the instructor immediately as approval can take a few days.
+:::
+
+---
+
+## Getting Help
+If you get stuck during the code blocks:
+
+* Check the **Console** for specific error messages.
+* Use the `print()` function to inspect variables.
+* Reference the [Official GEE Documentation](https://developers.google.com/earth-engine/guides).
+* Use ChatGPT, Gemini and friends!!! 

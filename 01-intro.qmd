@@ -1,0 +1,48 @@
+---
+title: "Introduction"
+---
+
+
+## Introduction
+This practical aims to showcase a fairly typical Earth Observation workflow: use the spaceborne acquired data to delineate or map different areas of interest. The actual application is to map the growth of cities (so to map "built-up" or "non-built-up" areas) over time. 
+
+### Background
+
+Where cities expand (and where they don't) affects the everyday life of their citizens: water, sanitation, access to education, jobs, exposure to adverse meteorological conditions, ... In West Africa, most of this urban growth happens on the fringes, and is largely informal. This means that there is little information to e.g., provide required services once an area has been settled. 
+
+Climate shocks can nudge these patterns. In many parts of West Africa, drought years hit rain-fed agriculture hard. When rural incomes fall, some people move, sometimes temporarily, sometimes permanently, toward larger cities with potentially better labour/livelihood opportunities. That movement can leave a spatial fingerprint: new, fast-growing neighbourhoods at the edge of the city, often on cheap or marginal land.  In recent years, civil strife has also produced a large number of displaced people, compounding the drivers of the influx. Limited resources in this region often mean that information is woefully inadequate for policy makers to act on. Fast and informal growth can also increase risk of flooding (as settlements occur in floodplains, wetlands, or block drainage corridors). Dwellers can also become urban heat hotspots, in addition to issues carried out by lack of sanitation and clean drinking water.
+
+In the practical you will: (1) build annual Landsat composites, (2) classify land cover into urban, forest, vegetated, bare soil, and water using a Random Forest model, (3) create an urban-area time series, and (4) infer what's going on. By the end, you’ll have a reproducible workflow and a set of figures that tell a clear story about how a West African city has changed. While you'll be focussing on a particular city, the potential is there for running this analyses over larger and larger areas, and using this evidence to test for, e.g., quantising the "why" and the "how" of these migrations.
+
+### Brief description of the activity
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-cap: Overall flow chart
+flowchart LR
+    %% Define the nodes with simplified text
+    A["**1. Data Acquisition**<br/>Landsat & Sentinel"]
+    B["**2. Pre-processing**<br/>Filtering & Mosaicking"]
+    C["**3. Classification**<br/>Random Forest ML"]
+    D["**4. Analysis**<br/>Urban Growth Stats"]
+
+    %% Simple linear connections
+    A --> B --> C --> D
+
+    %% Clean, professional styling
+    style A fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px
+    style B fill:#FFFDE7,stroke:#FBC02D,stroke-width:2px
+    style C fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    style D fill:#FFEBEE,stroke:#C62828,stroke-width:2px
+
+    %% Global font settings for the diagram
+    linkStyle default stroke:#666,stroke-width:2px;
+```
+
+In this activity, we'll use data from the [Landsat archive](https://landsat.usgs.gov/landsat-archive-dashboard). The Landsat family of sensors is the longest continuous data record of EO data (since the early 1970s until now). The Landsat archive provides an incredible record of the changes and evolution of the land surface for the last half century. Using this data is not without challenges though: in order to cover such a large time span, different satellites carrying slightly different versions of the imaging sensor have been used, introducing discrepancies.
+
+Landsat is an optical sensor, and as such, cannot collect data at night, under clouds or under cloud shadows. In areas with persistent cloud cover, the 16-day revisit period for Landsat can result in a depressing meagre number of actual observations! Additionally, for surface applications, the effect of the atmosphere needs to be taking into account. A lot of effort has gone in homogenising and making the actual data as easy and useful to end users, via a process of "[calibration and validation](https://science.nasa.gov/mission/landsat/calibration-validation/)", and producing derived products that employ sophisticated algorithms to map clouds, correct for sensor differences, etc. While these advanced products are invaluable, it is hard to come up with a degree of quality that satisfies all users, so a degree of additional *preprocessing* is often a crucial step.
+
+In terms of urban growth, you will be looking at a time series data (e.g., from 2000 up to 2025, considering every fifth year), and looking to build a *classifier* that maps the data recorded by the sensor on each pixel to a fixed set of labels (e.g., "urban", "water", "vegetation", etc.). The *classifier* needs to be defined, and this is done by gathering a so-called *training-validation-testing* dataset: you will need to select a large set of pixels and label them using the required class labels. Part of this dataset is used to then "train" the classifier, and part of it should be used to assess the quality of the classification and its uncertainty. Once the classifier is trained and validated, you can produce maps of different classes, and use them to quantify the urban growth.
+
+

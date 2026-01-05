@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: docs  # This is key for GitHub Pages
+
+website:
+  title: "Monitoring the growth of African cities using Earth Observation data"
+  sidebar:
+    style: "docked"
+    contents:
+      - 01-intro.qmd
+      - 02-methods.qmd
+      - 03-code.qmd
+      - 04-classifier.qmd
+
+  page-footer:
+    left: "(c) 2026 J Gómez-Dans"
+    right: "Contact: [jose.gomez-dans@kcl.ac.uk](mailto:jose.gomez-dans@kcl.ac.uk)"
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+    toc: true        # Adds a table of contents on the right
+    highlight-style: github # Good for clean code reading
+
+  pdf:
+    documentclass: report
+    papersize: a4
+    geometry:
+      - margin=1in
+
