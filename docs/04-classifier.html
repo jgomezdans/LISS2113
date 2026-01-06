@@ -407,12 +407,95 @@ window.Quarto = {
 <span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(trainingFC<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span>
 <span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(classified<span class="op">,</span></span>
 <span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span> palette}<span class="op">,</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Landcover Classification'</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>In my data set, the overall accuracy was around 82%, with a <span class="math inline">\(\kappa\)</span> value around 0.74, which suggests that on the same year, and around Bamako, the classifier is pretty good. The confusion matrix gives as an interesting vista of the classifier’s performance:</p>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Landcover Classification'</span>)<span class="op">;</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="co">// We can also export the classifier to use elsewhere</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">classifier</span><span class="op">.</span><span class="fu">toAsset</span>({</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>  <span class="dt">classifier</span><span class="op">:</span> rf<span class="op">,</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>  <span class="dt">description</span><span class="op">:</span> <span class="st">'classifier_export'</span><span class="op">,</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  <span class="dt">assetId</span><span class="op">:</span> <span class="st">"BamakoRFClassifier"</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="co">// You can load it up again using e.g.</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="co">// var rf = ee.Classifier.load(assetId)</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In my data set, the overall accuracy was around 82%, with a <span class="math inline">\(\kappa\)</span> value around 0.74, which suggests that on the same year, and around Bamako, the classifier is pretty good. The confusion matrix in <a href="#tbl-confusion-mtx" class="quarto-xref">Table&nbsp;1</a> gives as an interesting vista of the classifier’s performance:</p>
+<div id="tbl-confusion-mtx" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-confusion-mtx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Confusion matrix for Bamako example (2018)
+</figcaption>
+<div aria-describedby="tbl-confusion-mtx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 12%">
+<col style="width: 18%">
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Reference &nbsp;Predicted</th>
+<th>Water (0)</th>
+<th>Vegetation (1)</th>
+<th>Bare (2)</th>
+<th>Built-up (3)</th>
+<th>Row total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Water (0)</td>
+<td>47</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>48</td>
+</tr>
+<tr class="even">
+<td>Vegetation (1)</td>
+<td>0</td>
+<td>32</td>
+<td>2</td>
+<td>6</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td>Bare (2)</td>
+<td>1</td>
+<td>13</td>
+<td>23</td>
+<td>13</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>Built-up (3)</td>
+<td>0</td>
+<td>3</td>
+<td>7</td>
+<td>114</td>
+<td>124</td>
+</tr>
+<tr class="odd">
+<td>Column total</td>
+<td>48</td>
+<td>48</td>
+<td>33</td>
+<td>133</td>
+<td>262</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 <p>We can make the following observations:</p>
 <ul>
 <li><code>Water</code>: This is the most accurately classified category, with 47 out of 48 instances correctly identified.</li>
-<li>`Built up: This class shows strong performance with 114 correct predictions, though it occasionally absorbs misclassifications from Bare Soil and Veg.</li>
+<li>`Built up: This class shows strong performance with 114 correct predictions (92%), though it occasionally absorbs misclassifications from Bare Soil and Veg.</li>
 <li>The biggest error occurs in the Bare Soil class, where only 23 out of 50 instances were correctly identified. A large portion of Bare Soil (13 instances) was misclassified as Vegetation, and another 13 were misclassified as Built up. This suggests a spectral similarity between these land cover types that the model is finding difficult to resolve.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">

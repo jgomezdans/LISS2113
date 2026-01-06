@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -207,6 +242,7 @@ background: #e2231a;
   <ul>
   <li><a href="#tracking-urban-growth-using-eo.-discussion" id="toc-tracking-urban-growth-using-eo.-discussion" class="nav-link active" data-scroll-target="#tracking-urban-growth-using-eo.-discussion">Tracking urban growth using EO. Discussion</a>
   <ul class="collapse">
+  <li><a href="#counting-pixels" id="toc-counting-pixels" class="nav-link" data-scroll-target="#counting-pixels">Counting pixels</a></li>
   <li><a href="#the-bamako-case" id="toc-the-bamako-case" class="nav-link" data-scroll-target="#the-bamako-case">The Bamako case</a></li>
   <li><a href="#a-typical-classification-problem" id="toc-a-typical-classification-problem" class="nav-link" data-scroll-target="#a-typical-classification-problem">A typical classification problem</a></li>
   <li><a href="#the-most-important-lesson-watch-out-for-the-eo-hubris" id="toc-the-most-important-lesson-watch-out-for-the-eo-hubris" class="nav-link" data-scroll-target="#the-most-important-lesson-watch-out-for-the-eo-hubris">The most important lesson: Watch out for the EO hubris!!</a></li>
@@ -223,10 +259,106 @@ background: #e2231a;
 
 <section id="tracking-urban-growth-using-eo.-discussion" class="level2">
 <h2 class="anchored" data-anchor-id="tracking-urban-growth-using-eo.-discussion">Tracking urban growth using EO. Discussion</h2>
+<section id="counting-pixels" class="level3">
+<h3 class="anchored" data-anchor-id="counting-pixels">Counting pixels</h3>
+<p>Once you have your individual land cover masks, you can count pixels and plot the time series. The following script can do that for you and plot a couple of interesting masks:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/**** Assets ****/</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> classifier <span class="op">=</span> ee<span class="op">.</span><span class="at">Classifier</span><span class="op">.</span><span class="fu">load</span>(<span class="st">'users/xgomezdans/BamakoRFClassifier'</span>)<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> training <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(<span class="st">'users/xgomezdans/BamakoTraining2018'</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> roi <span class="op">=</span> training<span class="op">.</span><span class="fu">geometry</span>()<span class="op">.</span><span class="fu">bounds</span>()<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bands <span class="op">=</span> [<span class="st">"blue"</span><span class="op">,</span> <span class="st">"green"</span><span class="op">,</span> <span class="st">"red"</span><span class="op">,</span> <span class="st">"nir"</span><span class="op">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">"swir1"</span><span class="op">,</span> <span class="st">"swir2"</span><span class="op">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>             <span class="st">"NDVI"</span><span class="op">,</span> <span class="st">"MNDWI"</span><span class="op">,</span> <span class="st">"NDBI"</span><span class="op">,</span> <span class="st">"UI"</span><span class="op">,</span> <span class="st">"IBI"</span><span class="op">,</span> <span class="st">"BRIGHT"</span>]<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> palette <span class="op">=</span> [</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">'#4575b4'</span><span class="op">,</span> <span class="co">// 0 water</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">'#1a9850'</span><span class="op">,</span> <span class="co">// 1 veg</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">'#d73027'</span><span class="op">,</span> <span class="co">// 2 bare</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">'#fee08b'</span>  <span class="co">// 3 builtup</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">/**** Client-side list of mosaics (IMPORTANT) ****/</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mosaics <span class="op">=</span> [</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">year</span><span class="op">:</span> <span class="dv">2000</span><span class="op">,</span> <span class="dt">path</span><span class="op">:</span> <span class="st">'users/xgomezdans/Bamako_Mosaic_2000'</span>}<span class="op">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">year</span><span class="op">:</span> <span class="dv">2005</span><span class="op">,</span> <span class="dt">path</span><span class="op">:</span> <span class="st">'users/xgomezdans/Bamako_Mosaic_2005'</span>}<span class="op">,</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">year</span><span class="op">:</span> <span class="dv">2010</span><span class="op">,</span> <span class="dt">path</span><span class="op">:</span> <span class="st">'users/xgomezdans/Bamako_Mosaic_2010'</span>}<span class="op">,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">year</span><span class="op">:</span> <span class="dv">2015</span><span class="op">,</span> <span class="dt">path</span><span class="op">:</span> <span class="st">'users/xgomezdans/Bamako_Mosaic_2015'</span>}<span class="op">,</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">year</span><span class="op">:</span> <span class="dv">2018</span><span class="op">,</span> <span class="dt">path</span><span class="op">:</span> <span class="st">'users/xgomezdans/Bamako_Mosaic_2018'</span>}<span class="op">,</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">year</span><span class="op">:</span> <span class="dv">2020</span><span class="op">,</span> <span class="dt">path</span><span class="op">:</span> <span class="st">'users/xgomezdans/Bamako_Mosaic_2020'</span>}<span class="op">,</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">year</span><span class="op">:</span> <span class="dv">2024</span><span class="op">,</span> <span class="dt">path</span><span class="op">:</span> <span class="st">'users/xgomezdans/Bamako_Mosaic_2024'</span>}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="co">// {year: 2025, path: 'users/xgomezdans/Bamako_Mosaic_2025'}</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">/**** Per-year pixel counts (server-side computations, but constant asset IDs) ****/</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">countsFeature</span>(year<span class="op">,</span> path) {</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> img <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(path)<span class="op">.</span><span class="fu">select</span>(bands)<span class="op">;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> cls <span class="op">=</span> img<span class="op">.</span><span class="fu">classify</span>(classifier)<span class="op">.</span><span class="fu">rename</span>(<span class="st">'class'</span>)<span class="op">;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> scale <span class="op">=</span> img<span class="op">.</span><span class="fu">projection</span>()<span class="op">.</span><span class="fu">nominalScale</span>()<span class="op">;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> hist <span class="op">=</span> ee<span class="op">.</span><span class="fu">Dictionary</span>(</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    cls<span class="op">.</span><span class="fu">reduceRegion</span>({</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="dt">reducer</span><span class="op">:</span> ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">frequencyHistogram</span>()<span class="op">,</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>      <span class="dt">geometry</span><span class="op">:</span> roi<span class="op">,</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>      <span class="dt">scale</span><span class="op">:</span> scale<span class="op">,</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>      <span class="dt">bestEffort</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>      <span class="dt">maxPixels</span><span class="op">:</span> <span class="fl">1e13</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    })<span class="op">.</span><span class="fu">get</span>(<span class="st">'class'</span>)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ee<span class="op">.</span><span class="fu">Feature</span>(<span class="kw">null</span><span class="op">,</span> {</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span><span class="op">:</span> year<span class="op">,</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="dt">class0</span><span class="op">:</span> ee<span class="op">.</span><span class="fu">Number</span>(hist<span class="op">.</span><span class="fu">get</span>(<span class="st">'0'</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">,</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="dt">class1</span><span class="op">:</span> ee<span class="op">.</span><span class="fu">Number</span>(hist<span class="op">.</span><span class="fu">get</span>(<span class="st">'1'</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">,</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="dt">class2</span><span class="op">:</span> ee<span class="op">.</span><span class="fu">Number</span>(hist<span class="op">.</span><span class="fu">get</span>(<span class="st">'2'</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">,</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="dt">class3</span><span class="op">:</span> ee<span class="op">.</span><span class="fu">Number</span>(hist<span class="op">.</span><span class="fu">get</span>(<span class="st">'3'</span><span class="op">,</span> <span class="dv">0</span>))</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co">/**** Build FeatureCollection ****/</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> feats <span class="op">=</span> mosaics<span class="op">.</span><span class="fu">map</span>(<span class="kw">function</span>(m) {</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">countsFeature</span>(m<span class="op">.</span><span class="at">year</span><span class="op">,</span> m<span class="op">.</span><span class="at">path</span>)<span class="op">;</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> fc <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(feats)<span class="op">.</span><span class="fu">sort</span>(<span class="st">'year'</span>)<span class="op">;</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">'Pixel counts per class &amp; year'</span><span class="op">,</span> fc)<span class="op">;</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co">/**** Plot evolution ****/</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> chart <span class="op">=</span> ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">feature</span><span class="op">.</span><span class="fu">byFeature</span>(fc<span class="op">,</span> <span class="st">'year'</span><span class="op">,</span> [<span class="st">'class0'</span><span class="op">,</span> <span class="st">'class1'</span><span class="op">,</span> <span class="st">'class2'</span><span class="op">,</span> <span class="st">'class3'</span>])</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">setChartType</span>(<span class="st">'LineChart'</span>)</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">setOptions</span>({</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="st">'Bamako class pixel counts over time'</span><span class="op">,</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    <span class="dt">hAxis</span><span class="op">:</span> {<span class="dt">title</span><span class="op">:</span> <span class="st">'Year'</span><span class="op">,</span> <span class="dt">format</span><span class="op">:</span> <span class="st">'####'</span>}<span class="op">,</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    <span class="dt">vAxis</span><span class="op">:</span> {<span class="dt">title</span><span class="op">:</span> <span class="st">'Pixel count'</span>}<span class="op">,</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    <span class="dt">lineWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pointSize</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    <span class="dt">series</span><span class="op">:</span> {</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>      <span class="dv">0</span><span class="op">:</span> {<span class="dt">color</span><span class="op">:</span> palette[<span class="dv">0</span>]<span class="op">,</span> <span class="dt">labelInLegend</span><span class="op">:</span> <span class="st">'0 water'</span>}<span class="op">,</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span><span class="op">:</span> {<span class="dt">color</span><span class="op">:</span> palette[<span class="dv">1</span>]<span class="op">,</span> <span class="dt">labelInLegend</span><span class="op">:</span> <span class="st">'1 veg'</span>}<span class="op">,</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span><span class="op">:</span> {<span class="dt">color</span><span class="op">:</span> palette[<span class="dv">2</span>]<span class="op">,</span> <span class="dt">labelInLegend</span><span class="op">:</span> <span class="st">'2 bare'</span>}<span class="op">,</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>      <span class="dv">3</span><span class="op">:</span> {<span class="dt">color</span><span class="op">:</span> palette[<span class="dv">3</span>]<span class="op">,</span> <span class="dt">labelInLegend</span><span class="op">:</span> <span class="st">'3 builtup'</span>}</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(chart)<span class="op">;</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="co">/**** Optional: map preview for first &amp; last mosaic ****/</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> first <span class="op">=</span> mosaics[<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> firstCls <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(first<span class="op">.</span><span class="at">path</span>)<span class="op">.</span><span class="fu">select</span>(bands)<span class="op">.</span><span class="fu">classify</span>(classifier)<span class="op">.</span><span class="fu">clip</span>(roi)<span class="op">;</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> last <span class="op">=</span> mosaics[mosaics<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> latestCls <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(last<span class="op">.</span><span class="at">path</span>)<span class="op">.</span><span class="fu">select</span>(bands)<span class="op">.</span><span class="fu">classify</span>(classifier)<span class="op">.</span><span class="fu">clip</span>(roi)<span class="op">;</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(roi<span class="op">,</span> <span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(roi<span class="op">,</span> {}<span class="op">,</span> <span class="st">'ROI'</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(firstCls<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span> palette}<span class="op">,</span> <span class="st">'Classified '</span> <span class="op">+</span> first<span class="op">.</span><span class="at">year</span>)<span class="op">;</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(latestCls<span class="op">,</span> {<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">palette</span><span class="op">:</span> palette}<span class="op">,</span> <span class="st">'Classified '</span> <span class="op">+</span> last<span class="op">.</span><span class="at">year</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 <section id="the-bamako-case" class="level3">
 <h3 class="anchored" data-anchor-id="the-bamako-case">The Bamako case</h3>
-<p>Once you have your individual land cover masks, you can count pixels and plot the time series. In <a href="#fig-bamako-evolution" class="quarto-xref">Figure&nbsp;1</a>, I show the evolution of Bamako in Mali. The curve shows a fairly constant growth between 1975 and 2020, growing from around 60 square km to more than 140 square km, but the growth appears to flatten after 2020. Note that this could be an effect of the relatively small area we’re investigating (~20 km) becoming saturated and growth taking place elsewhere outside of our study area.</p>
-<p>We can also look at the spatial distribution of the growth (see <a href="#fig-bamako-map" class="quarto-xref">Figure&nbsp;2</a>). Clearly, Bamako has continue growing along the Niger River, but also outside from it, and we can see how the build up area ends up making a continuum between the main Bamako city and the towns that existed around it in 1975.</p>
+<p>. In <a href="#fig-bamako-evolution" class="quarto-xref">Figure&nbsp;1</a>, I show the evolution of Bamako in Mali. The curve shows a fairly constant growth between 1975 and 2020, growing from around 60 square km to more than 140 square km, but the growth appears to flatten after 2020. Note that this could be an effect of the relatively small area we’re investigating (~20 km) becoming saturated and growth taking place elsewhere outside of our study area.</p>
+<p>We can also look at the spatial distribution of the growth (see <a href="#fig-bamako-map" class="quarto-xref">Figure&nbsp;2</a>). Clearly, Bamako has continue growing along the Niger River, but also outside from it, and we can see how the build up area ends up making a continuum between the main Bamako city and the towns that existed around it in 2000.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -253,17 +385,20 @@ Figure&nbsp;1: Evolution of the size of build up area for a radial region centre
 <div id="fig-bamako-map" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bamako-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="bamako_presence_superimposed_1975_2025.png" class="img-fluid figure-img">
+<img src="bamako_presence_superimposed_2000_2025.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bamako-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Built up extent of Bamako in 1975 (red) and 2025 (blue)
+Figure&nbsp;2: Built up extent of Bamako in 2000 (red) and 2025 (blue)
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="a-typical-classification-problem" class="level3">
 <h3 class="anchored" data-anchor-id="a-typical-classification-problem">A typical classification problem</h3>
-<p>What you’ve got through is a typical classification problem. The goal of the classification (e.g.the “labels” you are interested in) and the input data might be different, but generally speaking, this is the blueprint. There are of course degrees o f sophistication you could improve on. For example, in some tasks, the <em>dynamics</em> of the change are what is important. For example, if you are trying to map different types of trees, it might be useful to consider features in summer and winter, to easily separate evergreen and deciduous. Another refinement (specially if your data has a very fine spatial resolution) is to exploit the spatial context: in this practical, we have just taken pixels on their own, but pixels are often spatially correlated, so taking each pixel considering its neighbouring spatial context is a great idea. This is part of what makes so-called deep learning approaches so effective.</p>
+<p>What you’ve got through is a typical classification problem. The goal of the classification (e.g.the “labels” you are interested in) and the input data might be different, but generally speaking, this is the blueprint. There are of course degrees of sophistication you could improve on. For example, in some tasks, the <em>dynamics</em> of the change are what is important. For example, if you are trying to map different types of trees, it might be useful to consider features in summer and winter, to easily separate evergreen and deciduous. Another refinement (specially if your data has a very fine spatial resolution) is to exploit the spatial context: in this practical, we have just taken pixels on their own, but pixels are often spatially correlated, so taking each pixel considering its neighbouring spatial context is a great idea. This is part of what makes so-called deep learning approaches so effective.</p>
+<p>As EO measurements are quite indirect to what you’re generally after, it pays to spend time removing additional sources of variance in the data, and pre-processing the data to emphasise the characteristics that are useful to your problem. Of course, properly phrasing your problem is also required (do you need to retrieve 15 landcover classes, or are you after one or two?). So simplifying the problem and selecting input features that are strongly linked to you phenomenon of study is generally a good idea.</p>
+<p>The indirect nature of the problem, augmented by the black box nature of most ML/classification algorithms is a risky prospect: plausible looking results are easy to get, but you need to build certainty on them. This is the role of the validation step: use an independent data set to test the classifier and assess its performance. Do not just consider one single metric, but report a broad suite of metrics, and use them to understand what is confusing the classifier. This exercise can guide you in refining the features you use. For example, in our study case, bare soils, vegetation and built up were confused to different degrees. Since we chose to use data from the dry season, we might be looking at vegetation that is very sparse, and mostly looks like soil. Were this an issue, adding perhaps a second wet season composite might help.</p>
+<p>Collecting training data is fundamental, as it allows you to actually select samples of your requirements and match them up with the EO data. You should take a lot of care in selecting it, and you should err in the side of caution: if unsure, collect more training data. You can always use it to validate things if you don’t use it for training. Ensure that your training set explores the true variability of the classes, and be aware that neighbouring pixels are strongly correlated, so prefer picking single points rather than large polygons. Stratify your sampling, and ensure you collect samples all over the region of interest (you don’t want to biased to a small region). If you’re doing multitemporal analyses like this one, you probably want to collect data at different periods, and covering different sensor configurations.</p>
 </section>
 <section id="the-most-important-lesson-watch-out-for-the-eo-hubris" class="level3">
 <h3 class="anchored" data-anchor-id="the-most-important-lesson-watch-out-for-the-eo-hubris">The most important lesson: Watch out for the EO hubris!!</h3>

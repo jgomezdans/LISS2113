@@ -49,7 +49,18 @@ The workshop is divided into three main stages:
 This practical assumes you have a Google Earth Engine account approved. If you do not, please notify the instructor immediately as approval can take a few days.
 :::
 
----
+### Further reading
+
+This practical shows a typical application of EO data for research, but doesn't cover fundamental EO concepts, basics of statistics/Machine Learning, or even how to use Google Earth Engine. For that you'll need additional sources of information:
+
+* Natural Resources Canada [Basics of Remote Sensing](https://www.nrcan.gc.ca/maps-tools-publications/satellite-imagery-air-photos/tutorial-fundamentals-remote-sensing/9309)
+* NASA Applied Scinece [Fundamentals of Remote Sensing	ARSET](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing)
+* Lund University [Introduction to Remote Sensing and
+Geographical Information Systems](https://www.nateko.lu.se/sites/nateko.lu.se.sv/files/remote_sensing_and_gis_20111212.pdf)
+* Random forest in remote sensing: A review of applications and future directions [Belgiu and Dragut (2016)](https://doi.org/10.1016/j.isprsjprs.2016.01.011)
+* [Getting started with Google Earth Engine](https://developers.google.com/earth-engine/guides/getstarted)
+* [GEE community tutorials](https://developers.google.com/earth-engine/tutorials)
+* [GEE Javascript API](https://developers.google.com/earth-engine/tutorials/tutorial_api_01)
 
 ### Getting Help
 If you get stuck during the code blocks:

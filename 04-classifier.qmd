@@ -147,14 +147,37 @@ Map.addLayer(classified,
   {min: 0, max: 3, palette: palette},
   'Landcover Classification');
 
+
+// We can also export the classifier to use elsewhere
+Export.classifier.toAsset({
+  classifier: rf,
+  description: 'classifier_export',
+  assetId: "BamakoRFClassifier"
+});
+
+// You can load it up again using e.g.
+// var rf = ee.Classifier.load(assetId)
+
+
 ```
 
-In my data set, the overall accuracy was around 82%, with a $\kappa$ value around 0.74, which suggests that on the same year, and around Bamako, the classifier is pretty good. The confusion matrix gives as an interesting vista of the classifier's performance:
+In my data set, the overall accuracy was around 82%, with a $\kappa$ value around 0.74, which suggests that on the same year, and around Bamako, the classifier is pretty good. The confusion matrix in @tbl-confusion-mtx gives as an interesting vista of the classifier's performance:
+
+
+| Reference \ Predicted | Water (0) | Vegetation (1) | Bare (2) | Built-up (3) | Row total |
+|-----------------------|-----------|----------------|----------|--------------|-----------|
+| Water (0)             | 47        | 0              | 1        | 0            | 48        |
+| Vegetation (1)        | 0         | 32             | 2        | 6            | 40        |
+| Bare (2)              | 1         | 13             | 23       | 13           | 50        |
+| Built-up (3)          | 0         | 3              | 7        | 114          | 124       |
+| Column total          | 48        | 48             | 33       | 133          | 262       |
+: Confusion matrix for Bamako example (2018) {#tbl-confusion-mtx}
+
 
 We can make the following observations:
 
 * `Water`: This is the most accurately classified category, with 47 out of 48 instances correctly identified.
-* `Built up: This class shows strong performance with 114 correct predictions, though it occasionally absorbs misclassifications from Bare Soil and Veg.
+* `Built up: This class shows strong performance with 114 correct predictions (92%), though it occasionally absorbs misclassifications from Bare Soil and Veg.
 * The biggest error occurs in the Bare Soil class, where only 23 out of 50 instances were correctly identified. A large portion of Bare Soil (13 instances) was misclassified as Vegetation, and another 13 were misclassified as Built up. This suggests a spectral similarity between these land cover types that the model is finding difficult to resolve.
 
 ::: callout-note
