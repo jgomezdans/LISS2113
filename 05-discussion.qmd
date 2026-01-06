@@ -116,9 +116,9 @@ If you are interested in the particular case of Bamako, you can read [(Keita et 
 
 :::
 
-![Evolution of the size of build up area for a radial region centred in Bamako (Mali) and extending 20km.](Bamako_Evolution.png){#fig-bamako-evolution}
+![Evolution of the size of build up area for a radial region centred in Bamako (Mali) and extending 20km.](bamako_built_area_trend_2000_2025.png){#fig-bamako-evolution}
 
-![Built up extent of Bamako in 2000 (red) and 2025 (blue)](bamako_presence_superimposed_2020_2025.png){#fig-bamako-map}
+![Built up extent of Bamako in 2000 (red) and 2025 (blue)](bamako_presence_superimposed_2000_red_2025_blue.png){#fig-bamako-map}
 
 ### A typical classification problem
 
