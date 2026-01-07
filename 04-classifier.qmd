@@ -1,6 +1,3 @@
----
-Title: "Building the classifier"
----
 
 ## Building a machine learning (ML) classifier
 

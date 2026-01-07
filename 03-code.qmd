@@ -1,7 +1,3 @@
----
-title: "Creation of annual composites in GEE"
----
-
 ## Creating an annual composite in GEE
 
 This is the actual code that performs this. Most of the code is standard boilerplate, so it's fundamentally a "cut and paste" job, but you should change options and see the results! While all these different snippets are given individually, you should copy them **in sequence** in the code editor.

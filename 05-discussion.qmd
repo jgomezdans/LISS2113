@@ -1,6 +1,3 @@
----
-title: "Discussion"
----
 
 ## Tracking urban growth using EO. Discussion
 

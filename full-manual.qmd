@@ -1,11 +1,26 @@
 ---
 title: "Monitoring the growth of African cities using Earth Observation data"
-subtitle: "Complete Course Manual"
+subtitle: "Complete EO Practical"
 author: "José Gómez-Dans (KCL)"
+pdf-engine: lualatex
 format:
   pdf:
     output-file: "EO-Urban-Monitoring-KCL.pdf"
+    include-before-body:
+      text: |
+        \begin{center}
+        \fboxsep=10pt
+        \fcolorbox{kclred}{white}{
+          \begin{minipage}{0.85\textwidth}
+            \centering
+            \textbf{Note:} The latest version of this document is available at: \\
+            \url{https://jgomezdans.github.io/LISS2113}
+          \end{minipage}
+        }
+        \end{center}
+        \vspace{1cm}
 ---
+
 
 {{< include 01-intro.qmd >}}
 

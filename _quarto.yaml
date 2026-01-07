@@ -43,6 +43,7 @@ format:
   pdf:
     documentclass: report
     papersize: a4
+    title: "LISS2113: Monitoring the growth of African cities using Earth Observation data"
     geometry:
       - margin=2.5cm
     number-sections: true
