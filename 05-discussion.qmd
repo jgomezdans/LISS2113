@@ -6,15 +6,21 @@ title: "Discussion"
 
 ### Counting pixels
 
-Once you have your individual land cover masks, you can count pixels and plot the time series. The following script can do that for you and plot a couple of interesting masks:
+Once you have your individual land cover masks, you can count pixels and plot the time series. The following script 
+will classifiy each composite, and export them to GeoTIFFs so you can then do further analyses in e.g., QGIS or any other package
 
 ```javascript
-/**** Assets ****/
+// =======================
+// GEE assets
+// These are JGD's for Bamako, you might want to change that to your own!
+// =======================
 var classifier = ee.Classifier.load('users/xgomezdans/BamakoRFClassifier');
 
 var training = ee.FeatureCollection('users/xgomezdans/BamakoTraining2018');
 var roi = training.geometry().bounds();
 
+// We need that the band names in the images and classifier match exactly
+// This shouldn't be needed, but it's good to check
 var bands = ["blue", "green", "red", "nir",
              "swir1", "swir2",
              "NDVI", "MNDWI", "NDBI", "UI", "IBI", "BRIGHT"];
@@ -26,7 +32,7 @@ var palette = [
   '#fee08b'  // 3 builtup
 ];
 
-/**** Client-side list of mosaics (IMPORTANT) ****/
+/**** Client-side list of mosaics ****/
 var mosaics = [
   {year: 2000, path: 'users/xgomezdans/Bamako_Mosaic_2000'},
   {year: 2005, path: 'users/xgomezdans/Bamako_Mosaic_2005'},
@@ -35,80 +41,86 @@ var mosaics = [
   {year: 2018, path: 'users/xgomezdans/Bamako_Mosaic_2018'},
   {year: 2020, path: 'users/xgomezdans/Bamako_Mosaic_2020'},
   {year: 2024, path: 'users/xgomezdans/Bamako_Mosaic_2024'}
-  // {year: 2025, path: 'users/xgomezdans/Bamako_Mosaic_2025'}
 ];
 
-/**** Per-year pixel counts (server-side computations, but constant asset IDs) ****/
-function countsFeature(year, path) {
-  var img = ee.Image(path).select(bands);
-  var cls = img.classify(classifier).rename('class');
+// =======================
+// Parameters
+// =======================
+var exportScale = 30;            // Landsat scale, 30m
+var exportFolder = 'Bamako_RF';  // Google Drive folder name
+var exportCrs = 'EPSG:4326';     // or set to your mosaic CRS if you prefer
+var maxPixels = 1e13;
 
-  var scale = img.projection().nominalScale();
-
-  var hist = ee.Dictionary(
-    cls.reduceRegion({
-      reducer: ee.Reducer.frequencyHistogram(),
-      geometry: roi,
-      scale: scale,
-      bestEffort: true,
-      maxPixels: 1e13
-    }).get('class')
-  );
-
-  return ee.Feature(null, {
-    year: year,
-    class0: ee.Number(hist.get('0', 0)),
-    class1: ee.Number(hist.get('1', 0)),
-    class2: ee.Number(hist.get('2', 0)),
-    class3: ee.Number(hist.get('3', 0))
-  });
-}
-
-/**** Build FeatureCollection ****/
-var feats = mosaics.map(function(m) {
-  return countsFeature(m.year, m.path);
-});
-var fc = ee.FeatureCollection(feats).sort('year');
-print('Pixel counts per class & year', fc);
-
-/**** Plot evolution ****/
-var chart = ui.Chart.feature.byFeature(fc, 'year', ['class0', 'class1', 'class2', 'class3'])
-  .setChartType('LineChart')
-  .setOptions({
-    title: 'Bamako class pixel counts over time',
-    hAxis: {title: 'Year', format: '####'},
-    vAxis: {title: 'Pixel count'},
-    lineWidth: 2,
-    pointSize: 5,
-    series: {
-      0: {color: palette[0], labelInLegend: '0 water'},
-      1: {color: palette[1], labelInLegend: '1 veg'},
-      2: {color: palette[2], labelInLegend: '2 bare'},
-      3: {color: palette[3], labelInLegend: '3 builtup'}
-    }
-  });
-print(chart);
-
-/**** Optional: map preview for first & last mosaic ****/
-var first = mosaics[0];
-var firstCls = ee.Image(first.path).select(bands).classify(classifier).clip(roi);
-
-
-var last = mosaics[mosaics.length - 1];
-var latestCls = ee.Image(last.path).select(bands).classify(classifier).clip(roi);
-
+// Optional: map setup
 Map.centerObject(roi, 10);
 Map.addLayer(roi, {}, 'ROI', false);
-Map.addLayer(firstCls, {min: 0, max: 3, palette: palette}, 'Classified ' + first.year);
-Map.addLayer(latestCls, {min: 0, max: 3, palette: palette}, 'Classified ' + last.year);
+
+// =======================
+// Loop over mosaics (client-side)
+// =======================
+mosaics.forEach(function(m) {
+  var year = m.year;
+  var img = ee.Image(m.path);
+
+  // Ensure band set + order matches what the classifier expects
+  img = img.select(bands);
+
+  // Classify!
+  var classified = img.classify(classifier).rename('lc');
+
+  // Clip for export tidiness
+  // Since we only have 4 labels, we can use a Byte datatype to reduce
+  // GeoTIFF storage
+  classified = classified.clip(roi).toByte();
+
+  // Quick visual check (optional)
+  Map.addLayer(
+    classified,
+    {min: 0, max: 3, palette: palette},
+    'Classified ' + year,
+    false
+  );
+
+  // Export to Google Drive as GeoTIFF
+  Export.image.toDrive({
+    image: classified,
+    description: 'Bamako_RF_' + year,
+    folder: exportFolder,
+    fileNamePrefix: 'Bamako_RF_' + year,
+    region: roi,
+    scale: exportScale,
+//    crs: exportCrs, // Remove to keep the output in its original projection
+    maxPixels: maxPixels
+  });
+});
+
+print('Created export tasks for years:', mosaics.map(function(m){ return m.year; }));
+
+
 ```
 
+The results from this, plotted using e.g. Python look like @fig-bamako-tm. The results show that for year 2005, there is a data issue: we see striping and notice that most of downtown Bamako is missing. This is probably due to persistent cloud and limited acquisitions in the compositing window. A similar pattern of striping is also clear in 2010. Since we build our classifier using data for 2018, when Landsat 8 was flying, we can also hypothesise that periods of data captured with the older Landsat 5 and 7 satellites might be degraded.
+
+![Evolution of land cover around Bamako between 2000 and 2025 derived from Landsat data](Bamako_TM_tseries_2000_2025.png){#fig-bamako-tm width="90%"}
+
+::: {callout.note}
+
+Is it all lost? What could you do to improve on this situation? 
+:::
+
+### Watch out for the technological hubris!!
+
+After all this, you now have a stack of images that allow you to look at the evolution of whatever city you chose to analyse. The process is fairly standard, but it does take effort. What's worse is that you will probably find that your results aren't quite what you expected them to be, as can be seen from the Bamako example!!!  It's notoriously hard to deal with long time series spanning decades and sensors in a simple workflow like the one we carried out here. Although we could take measures to improve screening and so on, this soon becomes a wild sheep chase
+
+Perhaps the most important lesson when thinking about using EO with your projects is to start thinking: "Surely, someone must have had a go at this before me?". A large number of times, you will find that this is indeed the case, and that there is a large community of researchers that spend years finessing the best way of addressing the problem you're trying to solve by creating "products". 
+
+Products are often freely available, well documented and validated, and if widely used, will have their inadequacies or other "glitches" exposed. For the case at hand, we could have used the **Global Human Settlement Layer** (described in some detail in [Pesaresi et al (2024)](https://doi.org/10.1080/17538947.2024.2390454)). This dataset extends EO data with detailed census data, and has been widely validated. Even if your final task is to use e.g., very high resolution optical data to map [slums](https://remote-sensing.org/a-decade-of-research-on-poverty-slums-and-informal-settlements-with-remote-sensing/), it is well worth considering using established products to at least cross-compare or to add additional information that simplifies your task.
 
 ### The Bamako case
 
-. In @fig-bamako-evolution, I show the evolution of Bamako in Mali. The curve shows a fairly constant growth between 1975 and 2020, growing from around 60 square km to more than 140 square km, but the growth appears to flatten after 2020. Note that this could be an effect of the relatively small area we're investigating (~20 km) becoming saturated and growth taking place elsewhere outside of our study area.
+In @fig-bamako-evolution, I show the evolution of Bamako in Mali from GHSL. The curve shows a fairly constant growth between 1975 and 2020, growing from around 60 square km to more than 140 square km, but the growth appears to flatten after 2020. Note that this could be an effect of timing of the product or other artefacts.
 
- We can also look at the spatial distribution of the growth (see @fig-bamako-map). Clearly, Bamako has continue growing along the Niger River, but also outside from it, and we can see how the build up area ends up making a continuum between the main Bamako city and the towns that existed around it in 2000. 
+ We can also look at the spatial distribution of the growth (see @fig-bamako-map). Clearly, Bamako has continued growing along the Niger River, but also outside from it, and we can see how the build up area ends up making a continuum between the main Bamako city and the towns that existed around it in 2000. These results show similar trends to our own efforts, which have been put together with minimal data and doing a very simple workflow.
 
 
 ::: callout-note
@@ -116,9 +128,9 @@ If you are interested in the particular case of Bamako, you can read [(Keita et 
 
 :::
 
-![Evolution of the size of build up area for a radial region centred in Bamako (Mali) and extending 20km.](bamako_built_area_trend_2000_2025.png){#fig-bamako-evolution}
+![Evolution of the size of build up area for a radial region centred in Bamako (Mali) and extending 20km (GHSL).](bamako_built_area_trend_2000_2025.png){#fig-bamako-evolution}
 
-![Built up extent of Bamako in 2000 (red) and 2025 (blue)](bamako_presence_superimposed_2000_red_2025_blue.png){#fig-bamako-map}
+![Built up extent of Bamako in 2000 (red) and 2025 (blue) (GHSL)](bamako_presence_superimposed_2000_red_2025_blue.png){#fig-bamako-map}
 
 ### A typical classification problem
 
@@ -129,10 +141,3 @@ As EO measurements are quite indirect to what you're generally after, it pays to
 The indirect nature of the problem, augmented by the black box nature of most ML/classification algorithms is a risky prospect: plausible looking results are easy to get, but you need to build certainty on them. This is the role of the validation step: use an independent data set to test the classifier and assess its performance. Do not just consider one single metric, but report a broad suite of metrics, and use them to understand what is confusing the classifier. This exercise can guide you in refining the features you use. For example, in our study case, bare soils, vegetation and built up were confused to different degrees. Since we chose to use data from the dry season, we might be looking at vegetation that is very sparse, and mostly looks like soil. Were this an issue, adding perhaps a second wet season composite might help.
 
 Collecting training data is fundamental, as it allows you to actually select samples of your requirements and match them up with the EO data. You should take a lot of care in selecting it, and you should err in the side of caution: if unsure, collect more training data. You can always use it to validate things if you don't use it for training. Ensure that your training set explores the true variability of the classes, and be aware that neighbouring pixels are strongly correlated, so prefer picking single points rather than large polygons. Stratify your sampling, and ensure you collect samples all over the region of interest (you don't want to biased to a small region). If you're doing multitemporal analyses like this one, you probably want to collect data at different periods, and covering different sensor configurations.
-
-### The most important lesson: Watch out for the EO hubris!!
-
-Perhaps the most important lesson when thinking about using EO with your projects is to start thinking: "Surely, someone must have had a go at this before me?". A large number of times, you will find that this is indeed the case, and that there is a large community of researchers that spend years finessing the best way of addressing the problem you're trying to solve by creating "products". 
-
-Products are often freely available, well documented and validated, and if widely used, will have their inadequacies or other "glitches" exposed. For the case at hand, we could have used the **Global Human Settlement Layer** (described in some detail in [Pesaresi et al (2024)](https://doi.org/10.1080/17538947.2024.2390454)). This dataset extends EO data with detailed census data, and has been widely validated. Even if your final task is to use e.g., very high resolution optical data to map [slums](https://remote-sensing.org/a-decade-of-research-on-poverty-slums-and-informal-settlements-with-remote-sensing/), it is well worth considering using established products to at least cross-compare or to add additional information that simplifies your task.
-

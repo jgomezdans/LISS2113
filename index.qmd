@@ -19,6 +19,12 @@ This practical is part of LISS 2113 (*Introduction to Geographic Information Sys
 
 This practical will show you how to use optical Earth Observation data from the Landsat family of satellites to monitor urban expansion in West African cities. The practical uses Google Earth Engine to access the data and perform most of the tasks. 
 
+::: {.callout-warning}
+
+You can find the latest version of these notes in [https://jgomezdans.github.io/LISS2113/](https://jgomezdans.github.io/LISS2113/)
+
+:::
+
 ::: {.callout-tip}
 While GEE is now free to use for non commercial applications, the techniques are very general, and you can use them in other platforms/environments, and for other mapping/classification tasks.
 
